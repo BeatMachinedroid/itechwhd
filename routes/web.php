@@ -8,6 +8,8 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ChartController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +23,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['prefix' => ''], function () {
+Route::get('/', [AuthController::class, 'index'])->name('login');
+});
 // ============================
 Route::get('/home', [TicketController::class, 'home'])->middleware('auth');
-Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/proses', [AuthController::class, 'proses']);
 Route::post('/regis', [AuthController::class, 'pReg']);
@@ -57,3 +62,5 @@ Route::put('/editreq',[RequestController::Class,'editrequest']);
 Route::get('/delreq{id}',[RequestController::Class,'delreq']);
 Route::get('/detail',[LaporanController::class,'viewDetail']);
 // ============================
+Route::get('/chart',[ChartController::class,'view'])->name('pegawai');
+Route::get('/search',[SearchController::class,'viewadd']);

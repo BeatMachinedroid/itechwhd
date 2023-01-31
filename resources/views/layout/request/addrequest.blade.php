@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row ">
-        <div class="col-lg-8 addreq">
+        <div class="col-lg-12 addreq">
             <form action="/addreqst" method="post">
 
                 <div class="card-body">
@@ -19,172 +19,225 @@
                 </div>
 
                 @csrf
-                <h6>Request Type</h6>
-                <div class="row formtype">
-                    <div class="col-md-7">
+
+                <div class="row">
+                    <div class="col-md-4">
                         <div class="form-group">
                             @error('problem')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <select class="form-control" id="category" name="request_type">
-                                <option value="">Select</option>
-                                @forelse ($request_types as $type)
-                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                @empty
-                                    <option value="">Select</option>
-                                @endforelse
-                            </select>
+                                <select class="form-control" id="category" name="id_request">
+                                    <option value="">Request Type</option>
+                                    @forelse ($request_types as $type)
+                                        <option value="{{ $type->id }}">
+                                            {{ $type->name }}</option>
+                                    @empty
+                                        <option value="">Request Type</option>
+                                    @endforelse
+                                </select>
                         </div>
                     </div>
                     {{-- sub1 --}}
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="form-group">
                             @error('problem')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <select class="form-control" id="sub_catogory" name="request_type_cate"
-                                {{-- style="display: none" --}}
-                                >
-                                <option value="">Select</option>
-                                @forelse ($req_cate as $type1)
-                                    <option value="{{ $type1->id }}">{{ $type1->name }}</option>
-                                @empty
-                                    <option value="">Select</option>
-                                @endforelse
+                            <select class="form-control" id="sub_catogory" name="id_request_cate" style="display: none">
+                                <option value=""></option>
+                                    @foreach ($req_cate1 as $type)
+                                        <option value="{{ $type->id }}">
+                                            {{ $type->name }}</option>
+                                    @endforeach
                             </select>
-
                         </div>
                     </div>
                     {{-- sub2 --}}
-                    <div class="col-md-6">
+                    {{-- <div class="col-md-4">
                         <div class="form-group">
                             @error('problem')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <select class="form-control" id="sub_catogory1" name="request_type_local"
-                            {{-- style="display: none" --}}
-                            >
-                            <option value="">Select</option>
-                            @forelse ($req_cate as $type1)
-                                <option value="{{ $type1->id }}">{{ $type1->name }}</option>
-                            @empty
-                                <option value="">Select</option>
-                            @endforelse
-                        </select>
-
-                        </div>
-                    </div>
-                    {{-- sub3 --}}
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @error('problem')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            {{-- =====================Manless 200===================== --}}
-                            <select class="form-control" id="sub_catogory_3" name="request_type_asset"
+                            <select class="form-control" id="sub_category_type" name="id_request_local"
                                 style="display: none">
-                                <option value="Barcode Scanner">Barcode Scanner</option>
-                                <option value="Casing">Casing</option>
-                                <option value="Embededd PC">Embededd PC</option>
-                                <option value="Indikator LED">Indikator LED</option>
-                                <option value="Relay I/O">Relay I/O</option>
+
+                                @forelse ($req_local as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type2" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local2 as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type3" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local3 as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type4" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local4 as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type5" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local5 as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type6" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local6 as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type7" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local7 as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type8" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local8 as $type)
+                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+
+                            <select class="form-control" id="sub_category_type9" name="id_request_local"
+                                style="display: none">
+
+                                @forelse ($req_local9 as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @empty
+                                @endforelse
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
+                    {{-- sub3 --}}
 
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <h6>Subject</h6>
+                            {{-- <h6>Subject</h6> --}}
                             @error('subject')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="subject">
+                            <input type="text" class="form-control" id="usr" name="subject" placeholder="Subject">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <h6>Problem</h6>
+                            {{-- <h6>Problem</h6> --}}
                             @error('problem')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="problem">
+                            <input type="text" class="form-control" id="usr" name="problem" placeholder="Problem">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <h6>Detail Request</h6>
+                            {{-- <h6>Detail Request</h6> --}}
                             @error('request_detail')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <textarea class="form-control" rows="5" id="comment" name="request_detail"></textarea>
+                            <textarea class="form-control" rows="5" id="comment" name="request_detail" placeholder="Detail Request"></textarea>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <h6>Petugas / Vendor</h6>
+                            {{-- <h6>Petugas / Vendor</h6> --}}
                             @error('petugas_teknisi')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="petugas_teknisi">
+                            <input type="text" class="form-control" id="usr" name="petugas_teknisi"
+                                placeholder="Petugas / Vendor">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <h6>Divisi / Bagian</h6>
+                            {{-- <h6>Divisi / Bagian</h6> --}}
                             @error('devisi')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="devisi">
+                            <input type="text" class="form-control" id="usr" name="devisi"
+                                placeholder="Divisi / Bagian">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <h6>Petugas IT / Regu</h6>
+                            {{-- <h6>Petugas IT / Regu</h6> --}}
                             @error('regu')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="regu">
+                            <input type="text" class="form-control" id="usr" name="regu"
+                                placeholder="Petugas IT / Regu">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <h6>Nama Pelapor</h6>
+                            {{-- <h6>Nama Pelapor</h6> --}}
                             @error('pelapor')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="pelapor">
+                            <input type="text" class="form-control" id="usr" name="pelapor"
+                                placeholder="Nama Pelapor">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <h6>Location</h6>
+                            {{-- <h6>Location</h6> --}}
                             <select class="form-control" id="sel2" name="location">
+                                <option value="">Location</option>
                                 <option>KANTOR CABANG - AMBON</option>
                                 <option>KANTOR CABANG - BAJOE</option>
-                                <option selectedselecte>KANTOR CABANG - BAKAUHENI</option>
+                                <option selected="selected">KANTOR CABANG - BAKAUHENI</option>
                                 <option>KANTOR CABANG - BALIKPAPAN</option>
                                 <option>KANTOR CABANG - BANDA ACEH</option>
                                 <option>KANTOR CABANG - BANGKA</option>
@@ -604,32 +657,12 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary button">Save</button>
-                            <button type="cancel" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="col-lg-4">
-            <div class="col-md-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <table class="table table-striped">
-                            <tbody>
-                                <tr>
-                                    <h4 class="card-title">Related FAQs</h4>
-                                    <th scope="row">
-                                        <a href="">
-                                            Lorem, ipsum dolor.
-                                        </a>
-                                    </th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 @endsection

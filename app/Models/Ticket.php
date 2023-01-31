@@ -9,7 +9,9 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $fillable = [
-            'request_type',
+            'id_request',
+            'id_request_cate',
+            'id_request_local',
             'request_detail',
             'subject',
             'petugas_teknisi',
@@ -17,9 +19,23 @@ class Ticket extends Model
             'regu',
             'problem',
             'pelapor',
-            'image',
             'location',
             'notes',
             'status',
     ];
+
+    public function requesttypecate()
+    {
+        return $this->belongsTo(RequestTypeCate::class,'id_request_cate');
+    }
+
+    public function requesttype()
+    {
+        return $this->belongsTo(RequestType::class,'id_request');
+    }
+
+    public function requesttypelocal()
+    {
+        return $this->belongsTo(RequestTypeLocal::class,'id_request_local');
+    }
 }

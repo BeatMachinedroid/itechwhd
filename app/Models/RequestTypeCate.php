@@ -26,4 +26,8 @@ class RequestTypeCate extends Model
         return $this->hasMany(RequestTypeLocal::class);
     }
 
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

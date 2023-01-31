@@ -19,4 +19,9 @@ class RequestType extends Model
     {
         return $this->hasMany(RequestTypeCate::class);
     }
+
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

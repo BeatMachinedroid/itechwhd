@@ -63,9 +63,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No.</th>
-                                    <th>Tanggal</th>
-                                    <th>Update At</th>
                                     <th class="text-left">Request Detail</th>
+                                    <th>Create At</th>
+                                    <th>Update At</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-right">Action</th>
                                 </tr>
@@ -75,13 +75,13 @@
                                     <tr>
                                         <td class="text-center"><a href="/detail"
                                                 class="btn-success badge-pill mt-0 col-md-1">{{ $tiket->id }}</a></td>
-                                        <td>{{ $tiket->created_at }}</td>
-                                        <td>{{ $tiket->updated_at }}</td>
-                                        <td class="text-left">{{ $tiket->request_detail }}</td>
-                                        <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span>
-                                        </td>
-                                        <td class="text-right">
+                                                <td class="text-left">{{ $tiket->request_detail }}</td>
+                                                <td>{{ $tiket->created_at }}</td>
+                                                <td>{{ $tiket->updated_at }}</td>
+                                                <td class="text-center">
+                                                    <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span>
+                                                </td>
+                                        <td class="text-right col-md-1">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
                                                     aria-expanded="false"><i

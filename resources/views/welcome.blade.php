@@ -1,2 +1,2 @@
-@extends('layout.main')
-@include('layout/dashboard/admin')
+@extends('layout.main2')
+

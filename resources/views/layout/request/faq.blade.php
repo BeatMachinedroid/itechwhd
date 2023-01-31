@@ -12,19 +12,37 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>No.</label>
-                            <input type="text" class="form-control">
+                            {{-- <label>No.</label> --}}
+                            <select name="" id="" class="form-control">
+                                <option value="" selected="selected">Category</option>
+                                <option value="0">Cyber Security</option>
+                                <option value="1">IT General/Other</option>
+                                <option value="2">KSO TELKOM</option>
+                                <option value="3">Layanan Akses Server</option>
+                                <option value="4">Layanan Aplikasi</option>
+                                <option  value="5">Layanan Data Center</option>
+                                <option value="6">Layanan Dukungan Pengguna</option>
+                                <option value="7">Layanan End User Computing</option>
+                                <option value="8">Layanan Jaringan dan Komunikasi</option>
+                                <option value="9">Layanan Solusi Bisnis</option>
+                                <option value="10">Layanan Teknis Internal</option>
+                                <option value="11">Layanan Ticketing</option>
+                                <option value="12">New Request Type [A]</option>
+                                <option value="13">New Request Type [A]</option>
+                                <option value="14">New Request Type [A]</option>
+                                <option value="15">Parking secure</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Contains</label>
-                            <input type="text" class="form-control">
+                            {{-- <label>Contains</label> --}}
+                            <input type="text" class="form-control" placeholder="Contains">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Search</label>
+                            {{-- <label>Search</label> --}}
                             <a href="#" class="btn btn-success btn-block mt-0 search_button">
                                 Search
                             </a>
@@ -69,19 +87,19 @@
                                                     aria-expanded="false"><i
                                                         class="fas fa-ellipsis-v ellipse_color"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="{{ '/faqedit'.$faq['id'] }}"><i
+                                                    <a class="dropdown-item" href="{{ '/faqedit' . $faq['id'] }}"><i
                                                             class="fas fa-pencil-alt m-r-5"></i>
                                                         Edit</a>
-                                                    <a class="dropdown-item" href="{{ '/delfaq'.$faq['id'] }}">
+                                                    <a class="dropdown-item" href="{{ '/delfaq' . $faq['id'] }}">
                                                         <i class="fas fa-trash-alt m-r-5"></i>
                                                         Delete</a>
                                                 </div>
                                             </div>
                                         </td>
-                                </tr>
+                                    </tr>
                                 @empty
                                     <div class="alert alert-danger">
-                                        Data Post belum Tersedia.
+                                        Data is Empty
                                     </div>
                                 @endforelse
                             </tbody>

@@ -16,9 +16,8 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_request');
-            $table->string('request_type_categories');
-            $table->string('request_type_locations');
-            $table->string('request_type_assets');
+            $table->unsignedBigInteger('id_request_cate');
+            $table->unsignedBigInteger('id_request_local')->nullable();
             $table->string('request_detail');
             $table->string('subject');
             $table->string('petugas_teknisi')->nullable();

@@ -66,7 +66,9 @@
                     <li class="submenu"> <a href="#"><i class="fas fa-chart-area"></i> <span> Chart </span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="/staf"> </a></li>
+                            <li><a href="al.html">Chart in Year </a></li>
+                            <li><a href="al.html">Chart in Month </a></li>
+                            <li><a href="al.html">Chart in Week </a></li>
                         </ul>
                     </li>
                 </ul>

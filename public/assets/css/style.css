@@ -472,14 +472,14 @@ button.bg-danger:hover {
 }
 .btn-success {
     background-color: #148BE3;
-    border-color: #f4873d;
+    border-color: #FB7110;
 }
 .btn-success:hover,
 .btn-success:focus,
 .btn-success.active,
 .btn-success:active,
 .open > .dropdown-toggle.btn-success {
-    background-color: #f4873d;
+    background-color: #FB7110;
     border: 1px solid #148BE3;
     color: #fff;
 }
@@ -1900,7 +1900,7 @@ html.menu-opened body {
     color: #333;
 }
 .page-title {
-    color: #333;
+    color: #fff;
     margin-bottom: 5px;
     font-size: 28px;
 }
@@ -5823,11 +5823,12 @@ h3.page-sub-title {
 .footer {
     display: block;
     margin: 10px 0;
-    padding: 10px 0 10px;
-
+    padding: 10px 0 10px 10px;
+    background-color: #fff;
 }
 
 .footer p {
+    color: #000;
     font-size: 15px;
     font-weight: 200;
 }

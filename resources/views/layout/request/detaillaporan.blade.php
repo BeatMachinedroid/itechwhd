@@ -1,4 +1,4 @@
-@section('content')
+{{-- @section('content')
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col-sm-5 col-4">
@@ -158,4 +158,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}

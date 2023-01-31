@@ -62,6 +62,8 @@
                                     <td>{{ $aset->serial }}</td>
                                     <td>{{ $aset->type }}</td>
                                     <td>{{ $aset->model }}</td>
+                                    <td></td>
+                                    <td></td>
                                     <td>{{ $aset->location }}</td>
                                     <td class="text-right">
                                         <div class="dropdown dropdown-action">
@@ -80,7 +82,7 @@
                                 </tr>
                                 @empty
                                 <div class="alert alert-danger">
-                                    Data Post belum Tersedia.
+                                    Data is Empty
                                 </div>
                             @endforelse
                             </tbody>

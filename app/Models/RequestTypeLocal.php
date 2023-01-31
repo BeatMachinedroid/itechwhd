@@ -20,10 +20,9 @@ class RequestTypeLocal extends Model
         return $this->belongsTo(RequestTypeCate::class,'id_request_cate');
     }
 
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 
-
-    // public function RequestTypeLocal()
-    // {
-    //     return $this->hasMany(RequestTypeLocal::class);
-    // }
 }
