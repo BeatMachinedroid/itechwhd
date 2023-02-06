@@ -1,15 +1,16 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Dashboard\TicketController;
-use App\Http\Controllers\RequestController;
-use App\Http\Controllers\AssetController;
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\ChartController;
+use App\Http\Controllers\Dashboard\RequestController;
+use App\Http\Controllers\Dashboard\AssetController;
+use App\Http\Controllers\Dashboard\FaqController;
+use App\Http\Controllers\Dashboard\PegawaiController;
+use App\Http\Controllers\Dashboard\LaporanController;
+use App\Http\Controllers\Dashboard\SearchController;
+use App\Http\Controllers\Chart\ControllerChart;
+use App\Http\Controllers\option\OptionController;
+use App\Http\Controllers\Download\PdfController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -60,7 +61,9 @@ Route::post('/addreqst',[RequestController::Class,'addrequst']);
 Route::get('/editrequest{id}',[RequestController::Class,'viewedit']);
 Route::put('/editreq',[RequestController::Class,'editrequest']);
 Route::get('/delreq{id}',[RequestController::Class,'delreq']);
-Route::get('/detail',[LaporanController::class,'viewDetail']);
+Route::get('/detail{id}',[RequestController::class,'viewDetail']);
 // ============================
-Route::get('/chart',[ChartController::class,'view'])->name('pegawai');
-Route::get('/search',[SearchController::class,'viewadd']);
+Route::get('/chart',[ControllerChart::class,'view']);
+// Route::get('/search',[SearchController::class,'viewadd']);
+// ============================
+Route::get('/ticket/pdf{id}',[PdfController::class,'cetak_pdf']);

@@ -16,35 +16,36 @@
                 @method('PUT')
                 <div class="row formtype">
                     <input type="hidden" name="id" value="{{ $ticket['id'] }}">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group row">
                             <div class="col-md-12">
                                 <h6>Request Type</h6>
-                                <input type="text" class="form-control" id="usr" name="request_type" value="{{ $ticket['request_type'] }}" disabled>
+                                <input type="text" class="form-control" id="usr" name="request_type" value="{{ $ticket->requesttype->name }} . {{ $ticket->sub_category }} . {{ $ticket->sub_category_type }}" disabled>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <h6>Subject</h6>
                             <input type="text" class="form-control" id="usr" disabled name="subject" value="{{ $ticket['subject'] }}">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>Subject Location / Area</h6>
+                            <input type="text" class="form-control" id="usr" name="area" placeholder="Subject Location / Area" value="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h6>Problem</h6>
+                            <input type="text" class="form-control" id="usr" name="problem" value="{{ $ticket['problem'] }}">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <div class="form-group">
                             <h6>Detail Request</h6>
                             <textarea class="form-control" rows="3" id="comment" name="request_detail" disabled >{{ $ticket['request_detail'] }}</textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h6>Problem</h6>
-                            @error('problem')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            <input type="text" class="form-control" id="usr" name="problem" value="{{ $ticket['problem'] }}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -71,10 +72,6 @@
                             <input type="text" class="form-control" id="usr" name="pelapor" value="{{ $ticket['pelapor'] }}">
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <h6>Attachments</h6>
-                        <input class="form-control" type="file" name="image">
-                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <h6>Location</h6>
@@ -83,7 +80,7 @@
                         </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <h6>Status</h6>
                             <select class="form-control" id="sel1" name="status">
@@ -103,17 +100,35 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <h6>Notes</h6>
-                            <div class="notes">
-                                <input type="text" class="form-control" id="usr" name="notes">
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="100" style="text-align: center"><h6>Date</h6></th>
+                                        <th><h6>Notes</h6></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @if ($ticket->notes !== null)
+                                                {{ $ticket->updated_at }}
+                                            @endif
+                                        </td>
+                                        <td >
+                                            <div class="notes">
+                                                <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" value="{{ $ticket->notes }}"></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary buttoncancel">Save</button>
-                            <button type="cancel" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
                         </div>
                     </div>
                 </div>

@@ -28,7 +28,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                                <select class="form-control" id="category" name="id_request">
+                                <select class="form-control" id="category" name="category" >
                                     <option value="">Request Type</option>
                                     @forelse ($request_types as $type)
                                         <option value="{{ $type->id }}">
@@ -42,114 +42,37 @@
                     {{-- sub1 --}}
                     <div class="col-md-4">
                         <div class="form-group">
-                            @error('problem')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <select class="form-control" id="sub_catogory" name="id_request_cate" style="display: none">
-                                <option value=""></option>
-                                    @foreach ($req_cate1 as $type)
-                                        <option value="{{ $type->id }}">
-                                            {{ $type->name }}</option>
-                                    @endforeach
+                            <select class="form-control" id="sub_catogory" name="sub_category" style="display: none">
+                                    <option value=""></option>
                             </select>
                         </div>
                     </div>
+
                     {{-- sub2 --}}
-                    {{-- <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            @error('problem')
+                            <select class="form-control" id="sub_category_type" name="sub_category_type"
+                                style="display: none">
+                                    <option value=""></option>
+                            </select>
+
+                        </div>
+                    </div>
+                    {{-- sub3 --}}
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{-- <h6>Subject</h6> --}}
+                            @error('area')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <select class="form-control" id="sub_category_type" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type2" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local2 as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type3" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local3 as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type4" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local4 as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type5" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local5 as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type6" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local6 as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type7" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local7 as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type8" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local8 as $type)
-                                    <option value="{{ $type->id }}"> {{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-
-                            <select class="form-control" id="sub_category_type9" name="id_request_local"
-                                style="display: none">
-
-                                @forelse ($req_local9 as $type)
-                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
+                            <input type="text" class="form-control" id="usr" name="area" placeholder="Subject Location / Area">
                         </div>
-                    </div> --}}
-                    {{-- sub3 --}}
+                    </div>
 
-
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             {{-- <h6>Subject</h6> --}}
                             @error('subject')
@@ -160,7 +83,7 @@
                             <input type="text" class="form-control" id="usr" name="subject" placeholder="Subject">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             {{-- <h6>Problem</h6> --}}
                             @error('problem')
@@ -185,11 +108,6 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             {{-- <h6>Petugas / Vendor</h6> --}}
-                            @error('petugas_teknisi')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                             <input type="text" class="form-control" id="usr" name="petugas_teknisi"
                                 placeholder="Petugas / Vendor">
                         </div>
@@ -197,23 +115,12 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             {{-- <h6>Divisi / Bagian</h6> --}}
-                            @error('devisi')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                             <input type="text" class="form-control" id="usr" name="devisi"
                                 placeholder="Divisi / Bagian">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            {{-- <h6>Petugas IT / Regu</h6> --}}
-                            @error('regu')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                             <input type="text" class="form-control" id="usr" name="regu"
                                 placeholder="Petugas IT / Regu">
                         </div>

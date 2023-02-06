@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Help Portal Itech | login</title>
+    <title>ITECH Help Desk | login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="images/logo_itech.png">

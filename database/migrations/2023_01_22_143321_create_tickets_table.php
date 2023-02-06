@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_request');
-            $table->unsignedBigInteger('id_request_cate');
-            $table->unsignedBigInteger('id_request_local')->nullable();
+            $table->unsignedBigInteger('category');
+            $table->string('sub_category');
+            $table->string('sub_category_type')->nullable();
             $table->string('request_detail');
+            $table->string('area');
             $table->string('subject');
             $table->string('petugas_teknisi')->nullable();
             $table->string('devisi')->nullable();
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->string('problem');
             $table->string('pelapor');
             $table->string('location');
-            $table->string('notes')->nullable();
+            $table->text('notes')->nullable();
             $table->string('status')->default('open');
             $table->timestamps();
         });

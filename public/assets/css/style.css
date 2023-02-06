@@ -5838,11 +5838,21 @@ h3.page-sub-title {
     width: 100%;
     padding: 5px 5px;
     margin-bottom: 0;
-    margin: 1em auto;
+    /* margin: 1em auto; */
     color: #3a3429;
     background: #f3dfba;
     overflow: hidden;
     line-height: 1.6em;
+}
+.notes textarea {
+        background: none;
+        background-color: transparent;
+        color: #000;
+        border: none;
+}
+
+.notes textarea:focus{
+    background-color: #f3dfba;
 }
 
 .notes:before {

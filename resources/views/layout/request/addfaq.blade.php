@@ -1,15 +1,18 @@
 @section('content')
     <div class="page-header">
-        <div class="row align-items-center">
-            <div class="col">
-                <h3 class="page-title mt-5">Add Asset</h3>
-            </div>
-        </div>
+
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
             <form action="/reqfaq" method="post">
                 @csrf
+                <div class="card-body">
+                    <h5 class="text-center">
+                        <strong>
+                            I - FaQs
+                        </strong>
+                    </h5>
+                </div>
                 <div class="row formtype">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -58,8 +61,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary buttoncancel">Save</button>
-                            <button type="cancel" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
                         </div>
                     </div>
                 </div>

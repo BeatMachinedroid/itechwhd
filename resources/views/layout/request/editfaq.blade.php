@@ -60,8 +60,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary buttoncancel">Save</button>
-                            <button type="cancel" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
                         </div>
                     </div>
                 </div>

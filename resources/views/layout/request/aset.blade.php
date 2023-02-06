@@ -12,11 +12,6 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="No. Asset">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
                             <input type="text" class="form-control" placeholder="Contains">
                         </div>
                     </div>

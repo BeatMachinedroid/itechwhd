@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('request_type_locals', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_request_cate');
-            $table->string('name');
+            $table->unsignedBigInteger('id_ticket');
+            $table->string('tingkat_kondisi');
+            $table->string('tingkat_gangguan');
+            $table->string('lama_penanganan');
+            $table->string('perangkat');
+            $table->string('deskripsi');
+            $table->string('perbaikan');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('request_type_locals');
+        Schema::dropIfExists('notes');
     }
 };

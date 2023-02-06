@@ -63,25 +63,25 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No.</th>
+                                    <th>Date</th>
+                                    <th>Update</th>
                                     <th class="text-left">Request Detail</th>
-                                    <th>Create At</th>
-                                    <th>Update At</th>
                                     <th class="text-center">Status</th>
-                                    <th class="text-right">Action</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($tickets as $tiket)
+                                @forelse ($ticket as $tiket)
                                     <tr>
-                                        <td class="text-center"><a href="/detail"
-                                                class="btn-success badge-pill mt-0 col-md-1">{{ $tiket->id }}</a></td>
-                                                <td class="text-left">{{ $tiket->request_detail }}</td>
-                                                <td>{{ $tiket->created_at }}</td>
-                                                <td>{{ $tiket->updated_at }}</td>
+                                        <td class="text-center"><a href="{{ '/detail' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">{{ $tiket->id }}</a></td>
+                                                <td>{{ $tiket->created_at->format('d / m / Y') }}</td>
+                                                <td>{{ $tiket->updated_at->format('d / m / Y')}}</td>
+                                                <td class="text-left">{{ substr($tiket->request_detail, 1 , 15) }}...</td>
                                                 <td class="text-center">
-                                                    <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span>
+                                                        <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span>
+                                                    {{-- <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span> --}}
                                                 </td>
-                                        <td class="text-right col-md-1">
+                                        <td class="text-center col-md-1">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
                                                     aria-expanded="false"><i
@@ -108,7 +108,7 @@
             </div>
             <div class="card-footer">
                 <div class="pagen">
-                    {{ $tickets->links('vendor.pagination.costume') }}
+                    {{ $ticket->links('vendor.pagination.costume') }}
                 </div>
             </div>
         </div>

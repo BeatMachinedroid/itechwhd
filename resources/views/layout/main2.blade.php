@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Help Portal Itech</title>
+    <title>ITECH Help Desk</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/logo_itech.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
@@ -52,13 +52,17 @@
     Morris.Donut({
         element: 'donut-chart',
         data: [
-
-            @foreach($data as $datas )
-            {
-                label: '{{ $datas->subject }}',
-                value: {{ $datas->count() }}
-            },
-            @endforeach
+            @forelse($data as $datas )
+                {
+                    label: '{{ $datas->area }}',
+                    value: {{ $datas->groupBy('area')->count() }}
+                },
+            @empty
+                {
+                    label: 'Data is empty',
+                    value: 0
+                },
+            @endforelse
         ],
         labelColor: "#FB7110",
         colors: ["#148BE3", "#93B5C2"],
@@ -69,16 +73,26 @@
     Morris.Bar({
         element: "bar-chart",
         data: [
-            @foreach($data as $datas )
-                    { y: '{{ $datas->subject }}', a: {{ $datas->where('subject','web development')->count()}} , b: {{ $datas->where('subject','sdas')->count() }} },
-            @endforeach
-          ],
-          xkey: 'y',
-          ykeys: ['a','b','c','d'],
-          labels: [''],
-          barColors : ["#148BE3", "#FB7110"],
+            @forelse($data as $datas )
+                {
+                    y: '{{ $datas->area}}',
+                    a: {{ $datas->groupBy('area')->count() }},
+                },
+                @empty
+                    {
+                        y: 0,
+                        a: 0,
+                    }
+            @endforelse
+        ],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['2012'],
+        barColors: ["#148BE3", "#FB7110"],
         resize: true,
         redraw: true,
     });
+
 </script>
+
 </html>

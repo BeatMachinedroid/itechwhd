@@ -39,7 +39,7 @@
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
                             <li><a href="/history"> History </a></li>
-                            <li><a href="/addrequest"> Add Request </a></li>
+
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-cube"></i> <span> Assets
@@ -47,20 +47,20 @@
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
                             <li><a href="/aset"> All Asset </a></li>
-                            <li><a href="/asetadd"> Add Asset </a></li>
+
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-comments"></i> <span> FAQs </span>
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
                             <li><a href="/faq">All FAQs </a></li>
-                            <li><a href="/addfaq"> Add FAQs </a></li>
+
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Staff </span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="/staf">All Staff </a></li>
+
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-chart-area"></i> <span> Chart </span> <span
