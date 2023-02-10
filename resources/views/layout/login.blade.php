@@ -36,7 +36,7 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url(images/logo_itech.png);">
+                <div class="login100-form-title" style="background-image: url(images/logo1.png);">
                     <span class="login100-form-title-1">
 
                     </span>
@@ -53,7 +53,7 @@
                     </div>
                 @endif
 
-                <form class="login100-form" action="/proses" method="post">
+                <form class="login100-form" action="{{ route('proses.login') }}" method="post">
                     @csrf
                     <div class="wrap-input100 validate-input m-b-18">
                         <input type="email" class="form-control" placeholder="Email" required name="email"
@@ -73,14 +73,13 @@
                             </a>
                         </div>
                         <div>
-                            <a href="#" class="txt1">
+                            <a href="{{ route('forget.get') }}" class="txt1">
                                 Forgot Password?
                             </a>
                         </div>
                     </div>
 
                     <div class="form-group container-login100-form-btn">
-
                         <button class="login100-form-btn">
                             Login
                         </button>

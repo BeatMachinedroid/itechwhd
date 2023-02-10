@@ -92,8 +92,8 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
+                                    <th width="100" style="text-align: center">Date</th>
                                     <th>Notes</th>
-                                    <th>Input</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -103,9 +103,11 @@
                                             {{ $ticket->updated_at }}
                                         @endif
                                     </td>
-                                    <td >
+                                    <td>
                                         <div class="notes">
-                                            <input type="text" class="form-control note" id="usr" name="notes" value="{{ $ticket->notes }}">
+                                            <textarea rows="5" type="text" class="form-control note" id="usr" name="notes">
+                                                    {{ $ticket->notes }}
+                                            </textarea>
                                         </div>
                                     </td>
                                 </tr>

@@ -8,7 +8,7 @@
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="/addreqst" method="post">
+            <form action="{{ route('addrequest.post') }}" method="post">
 
                 <div class="card-body">
                     <h5 class="text-center">
@@ -68,7 +68,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="area" placeholder="Subject Location / Area">
+                            <input type="text" class="form-control" id="usr" name="area" placeholder="Location / Area">
                         </div>
                     </div>
 
@@ -138,6 +138,25 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <div class="form-group">
+                            {{-- <h6>Carbon cc</h6> --}}
+                            @error('cc')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input" name="checkbox">
+                                  </div>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Text input with checkbox" name="cc">
+                              </div>
+                                {{-- <input type="checkbox" name="check-box"> <span><input type="text" class="form-control" id="usr" name="cc" placeholder="Carbon Copy"></span> --}}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <div class="form-group">
                             {{-- <h6>Location</h6> --}}
                             <select class="form-control" id="sel2" name="location">

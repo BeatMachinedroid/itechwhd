@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>ITECH Help Desk | Register</title>
+    <title>ITECH Help Desk</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="images/logo_itech.png">
@@ -37,79 +37,56 @@
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-form-title" style="background-image: url(images/logo1.png);">
+                    <span class="login100-form-title-1">
+
+                    </span>
                 </div>
-                <form class="login100-form" action="{{ route('proses.register') }}" method="post">
-                    @csrf
-                    <div class="wrap-input100 validate-input m-b-18">
-                        <input type="text" class="form-control" placeholder="Username" required name="username"
-                            value="" />
+
+                {{-- @if (session('error'))
+                    <div class="alert alert-danger">
+                        <b>Opps!</b> {{ session('error') }}
                     </div>
+                @endif --}}
+                @if (session('session_expired'))
+                    <div class="alert alert-danger">
+                        {{ session('session_expired') }}
+                    </div>
+                @endif
+
+                <form class="login100-form" action="{{ route('forgot.post') }}" method="post">
+                    @error('email')
+                    <div class="alert alert-danger mt-2">
+                        <strong>{{ $message }}</strong>
+                    </div>
+                    @enderror
+                @csrf
                     <div class="wrap-input100 validate-input m-b-18">
                         <input type="email" class="form-control" placeholder="Email" required name="email"
                             value="{{ Session::get('email') }}" />
                     </div>
-                    <div class="wrap-input100 validate-input m-b-18">
-                        <input type="text" class="form-control" placeholder="Phone" required name="phone"
-                            value="" />
-                    </div>
-                    <div class="wrap-input100 validate-input m-b-18">
-                        <select id="inputState" class="input100 form-control" name="location">
-                            <option selected>Choose location</option>
-                            <option>Kantor Cabang Bakauheni, Provinsi Lampung</option>
-                            <option>Kantor Cabang Ambon, Provinsi Maluku</option>
-                            <option>Kantor Cabang Bajoe, Provinsi Sulawesi Selatan</option>
-                            <option>Kantor Cabang Banda Aceh, Provinsi Aceh</option>
-                            <option>Kantor Cabang Balikpapan, Provinsi Kalimantan Timur</option>
-                            <option>Kantor Cabang Bangka, Provinsi Kepulauan Bangka Belitung</option>
-                            <option>Kantor Cabang Bau-bau, Provinsi Sulawesi Tenggara</option>
-                            <option>Kantor Cabang Bengkulu, Provinsi Bengkulu</option>
-                            <option>Kantor Cabang Biak,Provinsi Papua</option>
-                            <option>Kantor Cabang Bitung, Provinsi Sulawesi Utara</option>
-                            <option>Kantor Cabang Jepara, Provinsi Jawa Tengah</option>
-                            <option>Kantor Cabang Kayangan, Provinsi Nusa Tenggara Barat</option>
-                            <option>Kantor Cabang Ketapang, Provinsi Jawa Timur</option>
-                            <option>Kantor Cabang Kupang, Provinsi Nusa Tenggara Timur</option>
-                            <option>Kantor Cabang Lembar, Provinsi Nusa Tenggara Barat</option>
-                            <option>Kantor Cabang Luwuk, Provinsi Sulawesi Tengah</option>
-                            <option>Kantor Cabang Merak, Provinsi Banten</option>
-                            <option>Kantor Cabang Merauke, Provinsi Papua</option>
-                            <option>Kantor Cabang Padang, Provinsi Sumatera Barat</option>
-                        </select>
-                    </div>
+                    <div class="flex-sb-m w-full p-b-30">
 
-
-                    <div class="wrap-input100 form-group m-b-15">
-                        <input id="password-field" type="password" class="form-control" placeholder="Password"
-                            name="password" required />
-                        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                    </div>
-
-                    <div class="wrap-input100 form-group m-b-15">
-                        <input id="password-field-conf" type="password" placeholder="Password"
-                            class="form-control @error('password') is-invalid @enderror" name="password_confirmation"
-                            required autocomplete="current-password">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </span>
-                            @enderror
-                        <span toggle="#password-field-conf" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                    </div>
-                   <div class="flex-sb-m w-full p-b-30">
+                        <div>
+                            <a href="{{ route('register') }}" class="txt1">
+                                Don't have account
+                            </a>
+                        </div>
                         <div>
                             <a href="{{ route('login') }}" class="txt1">
                                 i have account
                             </a>
                         </div>
                     </div>
-                    <div class="form-group container-login100-form-btn">
 
+                    <div class="form-group container-login100-form-btn">
                         <button class="login100-form-btn">
-                            Register
+                            Send Password Reset Link
                         </button>
 
                     </div>
                 </form>
+
+
             </div>
         </div>
     </div>
@@ -130,6 +107,7 @@
     <script src="/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
     <script src="/js/main.js"></script>
+
 </body>
 
 </html>

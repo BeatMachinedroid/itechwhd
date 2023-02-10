@@ -117,7 +117,7 @@
                                         </td>
                                         <td >
                                             <div class="notes">
-                                                <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" value="{{ $ticket->notes }}"></textarea>
+                                                <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" value=""></textarea>
                                             </div>
                                         </td>
                                     </tr>

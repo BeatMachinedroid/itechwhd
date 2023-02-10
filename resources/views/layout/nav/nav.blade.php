@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header-left">
             {{-- <a href="index.html" class="logo"> <span class="logoclass">ITECH</span> </a> --}}
-            <img src="images/logo_itech1.png" width="80" height="70" alt="logo">
+            <img src="images/logo1.png" width="80" height="70" alt="logo">
         </div>
         <a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
         <a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>

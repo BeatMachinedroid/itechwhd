@@ -19,6 +19,7 @@ class Ticket extends Model
             'devisi',
             'regu',
             'problem',
+            'notes',
             'pelapor',
             'location',
             'status',
@@ -33,5 +34,5 @@ class Ticket extends Model
     {
         return $this->hasMany(Note::class);
     }
-    
+
 }

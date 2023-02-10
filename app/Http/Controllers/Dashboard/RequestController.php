@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 use App\Models\Ticket;
 use App\Models\Faqs;
 use App\Models\RequestType;
@@ -68,28 +69,75 @@ class RequestController extends Controller
             'area' => 'required',
             'subject' => 'required',
             'request_detail' => 'required',
-            // 'problem' => 'required',
-            // 'petugas_teknisi' => 'required',
-            // 'devisi' => 'required',
-            // 'regu' => 'required',
+            'problem' => 'required',
+            'petugas_teknisi' => 'required',
+            'devisi' => 'required',
+            'regu' => 'required',
             'pelapor' => 'required',
+            'cc' => 'required',
             'location' => 'required',
         ]);
 
-        $data = [
-            'category' => $request->category,
-            'sub_category' => $request->sub_category_type,
-            'sub_category_type' => $request->sub_category_type,
-            'area' => $request->area,
-            'subject' => $request->subject,
-            'request_detail' => $request->request_detail,
-            // 'problem' => $request->problem,
-            // 'petugas_teknisi' => $request->petugas_teknisi,
-            // 'devisi' => $request->devisi,
-            // 'regu' => $request->regu,
-            'pelapor' => $request->pelapor,
-            'location' => $request->location,
-        ];
+
+        if ($request->sub_category_type == null && $request->petugas_teknisi == null && $request->devisi == null) {
+
+            $data = [
+                'category' => $request->category,
+                'sub_category' => $request->sub_category,
+                // 'sub_category_type' => $request->sub_category_type,
+                'area' => $request->area,
+                'subject' => $request->subject,
+                'problem' => $request->problem,
+                'request_detail' => $request->request_detail,
+                // 'petugas_teknisi' => $request->petugas_teknisi,
+                // 'devisi' => $request->devisi,
+                'regu' => $request->regu,
+                'pelapor' => $request->pelapor,
+                'location' => $request->location,
+            ];
+
+            if ($request->input('checkbox') && $request->cc !== null ) {
+                Mail::send('email.template', $data, function($message) use ($request) {
+                    $message->to($request->cc);
+                    $message->subject('Request ticket sent');
+                });
+
+                return view('email.request_tickets', [])
+            }
+
+        }else if($request->sub_category_type !== null && $request->petugas_teknisi == null && $request->devisi == null){
+            $data = [
+                'category' => $request->category,
+                'sub_category' => $request->sub_category,
+                'sub_category_type' => $request->sub_category_type,
+                'area' => $request->area,
+                'subject' => $request->subject,
+                'problem' => $request->problem,
+                'request_detail' => $request->request_detail,
+                // 'petugas_teknisi' => $request->petugas_teknisi,
+                // 'devisi' => $request->devisi,
+                'regu' => $request->regu,
+                'pelapor' => $request->pelapor,
+                'location' => $request->location,
+            ];
+        }else{
+            $data = [
+                'category' => $request->category,
+                'sub_category' => $request->sub_category,
+                'sub_category_type' => $request->sub_category_type,
+                'area' => $request->area,
+                'subject' => $request->subject,
+                'problem' => $request->problem,
+                'request_detail' => $request->request_detail,
+                'petugas_teknisi' => $request->petugas_teknisi,
+                'devisi' => $request->devisi,
+                'regu' => $request->regu,
+                'pelapor' => $request->pelapor,
+                'location' => $request->location,
+            ];
+        }
+
+        // return $request;
 
         if (Ticket::create($data)) {
             $ticket = Ticket::paginate(5);
@@ -101,15 +149,7 @@ class RequestController extends Controller
     public function editrequest(Request $request)
     {
         $ticket = Ticket::find($request->id);
-        $ticket->update([
-                'petugas_teknisi' => $request->petugas_teknisi,
-                'devisi' => $request->devisi,
-                'regu' => $request->regu,
-                'problem' => $request->problem,
-                'pelapor' => $request->pelapor,
-                'notes' => $request->notes,
-                'status' => $request->status,
-            ]);
+        $ticket->update($request->all());
 
                 return redirect()
                 ->route('history')

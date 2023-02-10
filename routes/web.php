@@ -31,9 +31,14 @@ Route::get('/', [AuthController::class, 'index'])->name('login');
 // ============================
 Route::get('/home', [TicketController::class, 'home'])->middleware('auth');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/proses', [AuthController::class, 'proses']);
-Route::post('/regis', [AuthController::class, 'pReg']);
+Route::post('/login', [AuthController::class, 'proses'])->name('proses.login');
+Route::post('/register', [AuthController::class, 'pReg'])->name('proses.register');
 Route::get('/logout',[AuthController::class,'logout']);
+Route::get('/reset',[AuthController::class,'resetview'])->name('forget.get');
+Route::post('/reset',[AuthController::class,'submitemail'])->name('forgot.post');
+Route::get('/reset{token}',[AuthController::class,'showResetpw'])->name('reset.get');
+Route::post('/reset',[AuthController::class,'submitResetPasswordForm'])->name('reset.post');
+
 // ============================
 Route::get('/aset',[AssetController::class,'view'])->name('aset');
 Route::get('/asetadd',[AssetController::class,'viewadd']);
@@ -56,8 +61,8 @@ Route::get('/delstaf{id}',[PegawaiController::class,'delete']);
 Route::post('/addstaf',[PegawaiController::class,'add']);
 // ============================
 Route::get('/history',[RequestController::Class,'view'])->name('history');
-Route::get('/addrequest',[RequestController::Class,'viewadd']);
-Route::post('/addreqst',[RequestController::Class,'addrequst']);
+Route::get('/addrequest',[RequestController::Class,'viewadd'])->name('addrequest.get');
+Route::post('/addrequest',[RequestController::Class,'addrequst'])->name('addrequest.post');
 Route::get('/editrequest{id}',[RequestController::Class,'viewedit']);
 Route::put('/editreq',[RequestController::Class,'editrequest']);
 Route::get('/delreq{id}',[RequestController::Class,'delreq']);
@@ -67,3 +72,4 @@ Route::get('/chart',[ControllerChart::class,'view']);
 // Route::get('/search',[SearchController::class,'viewadd']);
 // ============================
 Route::get('/ticket/pdf{id}',[PdfController::class,'cetak_pdf']);
+// ============================
