@@ -4,33 +4,55 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Models\Ticket;
 
 class SearchController extends Controller
 {
     public function SearchHistory(Request $request)
     {
-        $text = $request->text;
-        $pet = $request->pet;
-        $category = $request->category;
-        $city = $request->city;
-        $result = Post::query();
-
-        if (!empty($text)) {
-            $result = $result->where('text', 'like', '%' . $text . '%');
+        if($request->status !== null){
+            $ticket = Ticket::where('status', 'like', '%' . $request->status . '%')->paginate(5);
         }
 
-        if (!empty($pet)) {
-            $result = $result->where('pet', $pet);
+        else if($request->number !== null){
+            $ticket = Ticket::where('id', $request->number)->paginate(5);
         }
 
-        if (!empty($category)) {
-            $result = $result->where('category', $category);
+        else if($request->contains !== null){
+            $ticket = Ticket::where('subject', $request->contains)->paginate(5);
+        }
+        else{
+            $ticket = Ticket::paginate(5);
+        }
+            return view('history', compact('ticket'));
+    }
+
+    public function SearchAsset(Request $request)
+    {
+        if($request->contains !== null){
+            $asset = Asset::where('subject', $request->contains)->paginate(5);
         }
 
-        if (!empty($city)) {
-            $result = $result->where('city', 'like', '%' . $city . '%');
-        }
+        return view('asset', compact('asset'));
 
-        $result = $result->get();
+    }
+
+    public function SearchFaqs(Request $request)
+    {
+        if($request->category !== null){
+            $faqs = Faqs::where('status', 'like', '%' . $request->status . '%')->paginate(5);
+        }
+        else if($request->contains !== null){
+            $faqs = Faqs::where('status', 'like', '%' . $request->status . '%')->paginate(5);
+        }
+        else{
+            $faqs = Faqs::paginate(5);
+        }
+            return view('faqs', compact('faqs'));
+    }
+
+    public function SearchPegawai(Request $request)
+    {
+
     }
 }

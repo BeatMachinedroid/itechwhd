@@ -147,4 +147,25 @@ class AuthController extends Controller
 
          return redirect('login')->with('message', 'Your password has been changed!');
      }
+
+     public function ViewSetting($id)
+     {
+        if (Auth::check()) {
+            $user = User::find($id);
+            return view('Setting', compact('user'));
+        } else {
+            return view('layout.login');
+        }
+     }
+
+     public function AccountSetting(Request $request)
+     {
+        $user = User::find($request->id);
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->location = $request->location;
+        $user->save();
+        return back();
+     }
 }

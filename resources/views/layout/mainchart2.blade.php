@@ -49,30 +49,11 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
 <script>
-    Morris.Donut({
-        element: 'donut-chart',
+
+        Morris.Bar({
+        element: "bar-chart2",
         data: [
-            @forelse($data as $datas )
-                {
-                    label: '{{ $datas->area }}',
-                    value: {{ $datas->groupBy('area')->count() }}
-                },
-            @empty
-                {
-                    label: 'Data is empty',
-                    value: 0
-                },
-            @endforelse
-        ],
-        labelColor: "#FB7110",
-        colors: ["#148BE3", "#93B5C2"],
-        resize: true,
-        redraw: true,
-    });
-    Morris.Bar({
-        element: "bar-chart",
-        data: [
-            @forelse($data as $datas )
+            @forelse($data2 as $datas )
                 {
                     y: '{{ $datas->area}}',
                     a: {{ $datas->groupBy('area')->count() }},
@@ -86,12 +67,10 @@
         ],
         xkey: 'y',
         ykeys: ['a'],
-        labels: ['@foreach ($data as $datas) {{ $datas->area }}, @endforeach'],
+        labels: ['@foreach ($data2 as $datas) {{ $datas->updated_at->format('M') }}, @endforeach'],
         barColors: ["#148BE3", "#FB7110"],
         resize: true,
         redraw: true,
     });
-
 </script>
-
 </html>

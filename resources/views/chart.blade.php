@@ -1,2 +1,2 @@
-@extends('layout.main3')
+@extends('layout.mainchart1')
 @include('layout.request.chart')

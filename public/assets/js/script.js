@@ -364,6 +364,10 @@
         })
     });
 
+    document.getElementById("show-form").addEventListener("click", function() {
+        document.getElementById("notes").style.display = "flex";
+      });
+
 
 })(jQuery);
 

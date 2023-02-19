@@ -18,8 +18,8 @@
                             <h6>{{ Auth::user()->username }}</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="settings.html">Account Settings</a>
-                    <a class="dropdown-item" href="/logout">Logout</a>
+                    <a class="dropdown-item" href="{{ '/settings' . Auth::user()->id }}">Account Settings</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
             </li>
         </ul>
@@ -38,39 +38,41 @@
                             </span>
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="/history"> History </a></li>
-                            <li><a href="/addrequest"> Add Request </a></li>
+                            <li><a href="{{ route('history') }}"> History </a></li>
+                            <li><a href="{{ route('addrequest.get') }}"> Add Request </a></li>
+                            <li><a href="">Upload</a></li>
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-cube"></i> <span> Assets
                             </span>
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="/aset"> All Asset </a></li>
-                            <li><a href="/asetadd"> Add Asset </a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu"> <a href="#"><i class="fas fa-comments"></i> <span> FAQs </span>
-                            <span class="menu-arrow"></span></a>
-                        <ul class="submenu_class" style="display: none;">
-                            <li><a href="/faq">All FAQs </a></li>
-                            <li><a href="/addfaq"> Add FAQs </a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Staff </span> <span
-                                class="menu-arrow"></span></a>
-                        <ul class="submenu_class" style="display: none;">
-                            <li><a href="/staf">All Staff </a></li>
+                            <li><a href="{{ route('aset') }}"> All Asset </a></li>
+                            <li><a href="{{ route('aset.get') }}"> Add Asset </a></li>
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-chart-area"></i> <span> Chart </span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="/chart">Chart in Year </a></li>
-                            <li><a href="al.html">Chart in Month </a></li>
-                            <li><a href="al.html">Chart in Week </a></li>
+                            <li><a href="{{ route('chart.view.year') }}">Chart in Year </a></li>
+                            <li><a href="{{ route('chart.view.month') }}">Chart in Month </a></li>
+                            <li><a href="{{ route('chart.view.week') }}">Chart in Week </a></li>
                         </ul>
                     </li>
+                    <li class="submenu"> <a href="#"><i class="fas fa-comments"></i> <span> FAQs </span>
+                            <span class="menu-arrow"></span></a>
+                        <ul class="submenu_class" style="display: none;">
+                            <li><a href="{{ route('faq') }}">All FAQs </a></li>
+                            <li><a href="{{ route('addfaq') }}"> Add FAQs </a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Staff </span> <span
+                                class="menu-arrow"></span></a>
+                        <ul class="submenu_class" style="display: none;">
+                            <li><a href="{{ route('pegawai') }}">All Staff </a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>

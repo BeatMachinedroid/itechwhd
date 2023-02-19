@@ -8,40 +8,40 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <form>
+            <form action="{{ route('search.history') }}" method="get">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="No. Ticket">
+                            <input type="text" class="form-control" placeholder="No. Ticket" name="number">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select class="form-control" id="sel1" name="sellist1">
-                                <option>All Active</option>
-                                <option>Open</option>
-                                <option>Pending</option>
-                                <option>Closed</option>
-                                <option>Cancelled</option>
-                                <option>Resolved</option>
-                                <option>Monitoring</option>
-                                <option>Monitoring Critical</option>
-                                <option>Pending Before Closed</option>
-                                <option>Monitoring 1 Hours</option>
-                                <option>New Status Type</option>
+                            <select class="form-control" name="status">
+                                {{-- <option value="all Active">All Active</option> --}}
+                                <option value="open">Open</option>
+                                <option value="pending">Pending</option>
+                                <option value="closed">Closed</option>
+                                <option value="cancelled">Cancelled</option>
+                                <option value="resolved">Resolved</option>
+                                <option value="monitoring">Monitoring</option>
+                                <option value="monitoring Critical">Monitoring Critical</option>
+                                <option value="pending Before Closed">Pending Before Closed</option>
+                                <option value="monitoring 1 Hours">Monitoring 1 Hours</option>
+                                <option value="new Status Type">New Status Type</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Contains">
+                            <input type="text" class="form-control" placeholder="Contains" name="contains">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <a href="#" class="btn btn-success btn-block mt-0">
+                            <button type="submit" class="btn btn-success btn-block mt-0">
                                 Search
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -56,6 +56,10 @@
                     <h4 class="card-title">
                         I – Ticket History
                     </h4>
+                    <div class="text-right">
+                        <a href="{{ route('cetak_excel') }} " class="btn btn-white">Download Excel</a>
+                    </div>
+
                 </div>
                 <div class="history">
                     <div class="table-responsive">
@@ -63,8 +67,8 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No.</th>
-                                    <th>Date</th>
-                                    <th>Update</th>
+                                    <th style="width: 150px">Date</th>
+                                    <th style="width: 150px">Update</th>
                                     <th class="text-left">Request Detail</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
@@ -73,7 +77,7 @@
                             <tbody>
                                 @forelse ($ticket as $tiket)
                                     <tr>
-                                        <td class="text-center"><a href="{{ '/detail' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">{{ $tiket->id }}</a></td>
+                                        <td class="text-center"><a href="{{ '/Ticket' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">{{ $tiket->id }}</a></td>
                                                 <td>{{ $tiket->created_at->format('d / m / Y') }}</td>
                                                 <td>{{ $tiket->updated_at->format('d / m / Y')}}</td>
                                                 <td class="text-left">{{ substr($tiket->request_detail, 1 , 15) }}...</td>

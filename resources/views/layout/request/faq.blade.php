@@ -14,23 +14,23 @@
                         <div class="form-group">
                             {{-- <label>No.</label> --}}
                             <select name="" id="" class="form-control">
-                                <option value="" selected="selected">Category</option>
-                                <option value="0">Cyber Security</option>
-                                <option value="1">IT General/Other</option>
-                                <option value="2">KSO TELKOM</option>
-                                <option value="3">Layanan Akses Server</option>
-                                <option value="4">Layanan Aplikasi</option>
-                                <option  value="5">Layanan Data Center</option>
-                                <option value="6">Layanan Dukungan Pengguna</option>
-                                <option value="7">Layanan End User Computing</option>
-                                <option value="8">Layanan Jaringan dan Komunikasi</option>
-                                <option value="9">Layanan Solusi Bisnis</option>
-                                <option value="10">Layanan Teknis Internal</option>
-                                <option value="11">Layanan Ticketing</option>
-                                <option value="12">New Request Type [A]</option>
-                                <option value="13">New Request Type [A]</option>
-                                <option value="14">New Request Type [A]</option>
-                                <option value="15">Parking secure</option>
+                                <option selected="selected">Category</option>
+                                <option >Cyber Security</option>
+                                <option >IT General/Other</option>
+                                <option >KSO TELKOM</option>
+                                <option >Layanan Akses Server</option>
+                                <option >Layanan Aplikasi</option>
+                                <option  >Layanan Data Center</option>
+                                <option >Layanan Dukungan Pengguna</option>
+                                <option >Layanan End User Computing</option>
+                                <option >Layanan Jaringan dan Komunikasi</option>
+                                <option >Layanan Solusi Bisnis</option>
+                                <option >Layanan Teknis Internal</option>
+                                <option >Layanan Ticketing</option>
+                                <option >New Request Type [A]</option>
+                                <option >New Request Type [A]</option>
+                                <option >New Request Type [A]</option>
+                                <option >Parking secure</option>
                             </select>
                         </div>
                     </div>
@@ -66,22 +66,21 @@
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <th style="text-align: center;">No.</th>
                                     <th>Category</th>
                                     <th>Judul</th>
                                     <th>solusi</th>
-                                    <th>Vote</th>
-                                    <th>action</th>
+                                    <th style="text-align: center;">action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($faqs as $faq)
                                     <tr>
-                                        <td>{{ $faq->id }}</td>
+                                        <td style="text-align: center;">{{ $faq->id }}</td>
                                         <td>{{ $faq->kategori }}</td>
                                         <td>{{ $faq->judul }}</td>
-                                        <td>{{ $faq->solusi }}</td>
-                                        <td class="text-right">
+                                        <td >{{ $faq->solusi }}</td>
+                                        <td style="text-align: center;">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
                                                     aria-expanded="false"><i

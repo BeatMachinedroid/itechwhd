@@ -45,8 +45,7 @@ class AssetController extends Controller
         ];
 
         if (Assets::create($data)) {
-            $asset = Assets::paginate(5);
-            return view('Asset',['assets'=>$asset]);
+            return redirect()->route('aset')->with('message','data is saved');
         }
     }
 
@@ -72,14 +71,13 @@ class AssetController extends Controller
 
         return redirect()
         ->route('aset')
-        ->with(['success' => 'Data Berhasil Diupdate!']);
+        ->with(['message' => 'Data is updated successfully']);
     }
 
     public function deleteasset($id)
     {
         $asset = Assets::find($id);
         $asset->delete();
-        return redirect()
-        ->route('aset');
+        return redirect()->route('aset')->with('message','data is deleted');
     }
 }

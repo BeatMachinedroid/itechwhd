@@ -63,24 +63,23 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             {{-- <h6>Subject</h6> --}}
-                            @error('area')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <input type="text" class="form-control" id="usr" name="area" placeholder="Location / Area">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            {{-- <h6>Subject</h6> --}}
                             @error('subject')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
                             <input type="text" class="form-control" id="usr" name="subject" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{-- <h6>Subject</h6> --}}
+                            @error('area')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <input type="text" class="form-control" id="usr" name="area" placeholder="Problem Area">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -94,6 +93,7 @@
                             <input type="text" class="form-control" id="usr" name="problem" placeholder="Problem">
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
                             {{-- <h6>Detail Request</h6> --}}
@@ -109,23 +109,10 @@
                         <div class="form-group">
                             {{-- <h6>Petugas / Vendor</h6> --}}
                             <input type="text" class="form-control" id="usr" name="petugas_teknisi"
-                                placeholder="Petugas / Vendor">
+                                placeholder="officer / technician">
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
-                            {{-- <h6>Divisi / Bagian</h6> --}}
-                            <input type="text" class="form-control" id="usr" name="devisi"
-                                placeholder="Divisi / Bagian">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="usr" name="regu"
-                                placeholder="Petugas IT / Regu">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
                             {{-- <h6>Nama Pelapor</h6> --}}
                             @error('pelapor')
@@ -134,36 +121,30 @@
                                 </div>
                             @enderror
                             <input type="text" class="form-control" id="usr" name="pelapor"
-                                placeholder="Nama Pelapor">
+                                placeholder="Reporter Name">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            {{-- <h6>Carbon cc</h6> --}}
-                            @error('cc')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <div class="input-group-text">
-                                    <input type="checkbox" aria-label="Checkbox for following text input" name="checkbox">
-                                  </div>
-                                </div>
-                                <input type="text" class="form-control" aria-label="Text input with checkbox" name="cc">
-                              </div>
-                                {{-- <input type="checkbox" name="check-box"> <span><input type="text" class="form-control" id="usr" name="cc" placeholder="Carbon Copy"></span> --}}
+                            {{-- <h6>Divisi / Bagian</h6> --}}
+                            <input type="text" class="form-control" id="usr" name="devisi"
+                                placeholder="Divisition">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="usr" name="regu"
+                                placeholder="Technition IT / Grub">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                         <div class="form-group">
                             {{-- <h6>Location</h6> --}}
                             <select class="form-control" id="sel2" name="location">
                                 <option value="">Location</option>
                                 <option>KANTOR CABANG - AMBON</option>
                                 <option>KANTOR CABANG - BAJOE</option>
-                                <option selected="selected">KANTOR CABANG - BAKAUHENI</option>
+                                <option>KANTOR CABANG - BAKAUHENI</option>
                                 <option>KANTOR CABANG - BALIKPAPAN</option>
                                 <option>KANTOR CABANG - BANDA ACEH</option>
                                 <option>KANTOR CABANG - BANGKA</option>
@@ -579,6 +560,25 @@
                                 <option>PELABUHAN UPT - WEJIM</option>
                                 <option>PELABUHAN UPT - YENANAS</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{-- <h6>Carbon cc</h6> --}}
+                            @error('cc')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input" name="checkbox">
+                                  </div>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Text input with checkbox" name="cc" value="aris.waryanto@indonesiaferry.co.id">
+                              </div>
+                                {{-- <input type="checkbox" name="check-box"> <span><input type="text" class="form-control" id="usr" name="cc" placeholder="Carbon Copy"></span> --}}
                         </div>
                     </div>
                     <div class="col-md-12">

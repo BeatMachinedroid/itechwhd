@@ -1,60 +1,66 @@
 @section('content')
     <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
 
+            </div>
+        </div>
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="/addaset" method="POST">
+            <form action="{{ route('settings') }}" method="post">
+                @method('PUT')
+                <input type="hidden" name="id" value="{{ $user['id'] }}">
+
                 <div class="card-body">
                     <h5 class="text-center">
                         <strong>
-                            I - Asset Report
+                            I - Report
                         </strong>
                     </h5>
                 </div>
 
                 @csrf
-                <div class="row formtype">
+
+                <div class="row">
+                    {{-- sub3 --}}
                     <div class="col-md-6">
                         <div class="form-group">
-                            <h6>Asset Type</h6>
-                            <select class="form-control" id="sel1" name="type">
-                                <option >CCTV</option>
-                                <option >Hardware</option>
-                                <option >Laptop</option>
-                                <option >Orion.Nodes</option>
-                                <option >Orion.VIM.Hosts</option>
-                                <option >Orion.VIM.VCenters</option>
-                                <option >PRINTER</option>
-                                <option >VOIP</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h6>model</h6>
-                            @error('subject')
+                            {{-- <h6>username</h6> --}}
+                            @error('Username')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <input type="text" class="form-control" id="usr" name="model">
+                            <input type="text" class="form-control" id="usr" name="Username" placeholder="Username" value="{{ Auth::user()->username }}">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <h6>serial</h6>
-                            @error('detail')
+                            {{-- <h6>Email</h6> --}}
+                            @error('Email')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <textarea class="form-control" rows="5" id="comment" name="serial"></textarea>
+                            <input type="text" class="form-control" id="usr" name="email" placeholder="Email" value="{{ Auth::user()->email }}">
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <h6>Location</h6>
+                            {{-- <h6>phone</h6> --}}
+                            @error('phone')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <input type="text" class="form-control" id="usr" name="phone"
+                                placeholder="Phone" value="{{ Auth::user()->phone }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{-- <h6>Location</h6> --}}
                             <select class="form-control" id="sel2" name="location">
                                 <option value="">Location</option>
                                 <option>KANTOR CABANG - AMBON</option>
@@ -488,3 +494,4 @@
         </div>
     </div>
 @endsection
+

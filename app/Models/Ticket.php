@@ -10,16 +10,15 @@ class Ticket extends Model
     use HasFactory;
     protected $fillable = [
             'category',
+            'area',
             'sub_category',
             'sub_category_type',
             'request_detail',
-            'area',
             'subject',
             'petugas_teknisi',
             'devisi',
             'regu',
             'problem',
-            'notes',
             'pelapor',
             'location',
             'status',

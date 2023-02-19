@@ -15,13 +15,19 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_ticket');
+            $table->unsignedBigInteger('ticket');
+            $table->string('tgl_done');
+            $table->string('jam');
+            $table->string('sampai_lokasi');
             $table->string('tingkat_kondisi');
             $table->string('tingkat_gangguan');
             $table->string('lama_penanganan');
+            $table->string('lokasi')->nullable();
             $table->string('perangkat');
             $table->string('deskripsi');
             $table->string('perbaikan');
+            $table->string('penyebab');
+            $table->string('solusi');
             $table->timestamps();
         });
     }

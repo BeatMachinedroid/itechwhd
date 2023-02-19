@@ -24,7 +24,6 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Search</label>
                             <a href="#" class="btn btn-success btn-block mt-0 search_button">
                                 Search
                             </a>

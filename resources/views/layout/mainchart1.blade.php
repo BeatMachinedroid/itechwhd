@@ -49,69 +49,30 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
 <script>
-    // Morris.Donut({
-    //     element: 'donut-chart',
-    //     data: [
-    //         @forelse($data as $datas )
-    //             {
-    //                 label: '{{ $datas->subject }}',
-    //                 value: {{ $datas->count() }}
-    //             },
-    //         @empty
-    //             {
-    //                 label: 'Data is empty',
-    //                 value: 0
-    //             },
-    //         @endforelse
-    //     ],
-    //     labelColor: "#FB7110",
-    //     colors: ["#148BE3", "#93B5C2"],
-    //     resize: true,
-    //     redraw: true,
-    // });
 
-    // Morris.Bar({
-    //     element: "bar-chart",
-    //     data: [
-    //         @forelse($data as $datas )
-    //             {
-    //                 y: '{{ $datas->subject }}',
-    //                 a: {{ $datas->where('subject', 'web development')->count() }},
-    //                 b: {{ $datas->where('subject', 'sdas')->count() }}
-    //             },
-    //             @empty
-    //                 {
-    //                     y: 0,
-    //                     a: 0,
-    //                 }
-    //         @endforelse
-    //     ],
-    //     xkey: 'y',
-    //     ykeys: ['a', 'b', 'c', 'd'],
-    //     labels: [''],
-    //     barColors: ["#148BE3", "#FB7110"],
-    //     resize: true,
-    //     redraw: true,
-    // });
+Morris.Bar({
+element: "bar-chart",
+data: [
+    @forelse($data as $datas )
+        {
+            y: '{{ $datas->area}}',
+            a: {{ $datas->groupBy('area')->count() }},
+        },
+        @empty
+            {
+                y: 0,
+                a: 0,
+            }
+    @endforelse
+],
+xkey: 'y',
+ykeys: ['a'],
+labels: ['@foreach ($data as $datas) {{ $datas->updated_at->format('Y') }}, @endforeach'],
+barColors: ["#148BE3", "#FB7110"],
+resize: true,
+redraw: true,
+});
 
-    Morris.Bar({
-        element: "chart_bar",
-        data: [
-
-                {
-                    y: '',
-                    a: 1,
-                    b: 2
-                },
-
-        ],
-        xkey: 'y',
-        ykeys: ['a', 'b', 'c', 'd'],
-        labels: [''],
-        barColors: ["#148BE3", "#FB7110"],
-        resize: true,
-        redraw: true,
-    });
 </script>
 
 </html>

@@ -32,12 +32,6 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <h6>Subject Location / Area</h6>
-                            <input type="text" class="form-control" id="usr" name="area" placeholder="Subject Location / Area" value="">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
                             <h6>Problem</h6>
                             <input type="text" class="form-control" id="usr" name="problem" value="{{ $ticket['problem'] }}">
                         </div>
@@ -105,19 +99,26 @@
                                 <thead>
                                     <tr>
                                         <th width="100" style="text-align: center"><h6>Date</h6></th>
+                                        <td style="width: 120px">Name</td>
                                         <th><h6>Notes</h6></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        {{-- @foreach ($collection as $item)
+
+                                        @endforeach --}}
                                         <td>
-                                            @if ($ticket->notes !== null)
+                                            {{-- @if ($ticket->notes !== null) --}}
                                                 {{ $ticket->updated_at }}
-                                            @endif
+                                            {{-- @endif --}}
+                                        </td>
+                                        <td>
+                                            {{ Auth::user()->username }}
                                         </td>
                                         <td >
                                             <div class="notes">
-                                                <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" value=""></textarea>
+                                                <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" value="">{{ $ticket->notes }}</textarea>
                                             </div>
                                         </td>
                                     </tr>
