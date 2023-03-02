@@ -366,6 +366,23 @@
 
     document.getElementById("show-form").addEventListener("click", function() {
         document.getElementById("notes").style.display = "flex";
+        document.getElementById("notes-text").style.display = "none";
+
+      });
+
+    document.getElementById("show-form-text").addEventListener("click", function() {
+        document.getElementById("notes-text").style.display = "flex";
+        document.getElementById("notes").style.display = "none";
+      });
+
+    document.getElementById("show-display").addEventListener("click", function() {
+        document.getElementById("display-notes").style.display = "table-row";
+        document.getElementById("display-notes-text").style.display = "none";
+      });
+
+    document.getElementById("show-notes-text").addEventListener("click", function() {
+        document.getElementById("display-notes-text").style.display = "table-row";
+        document.getElementById("display-notes").style.display = "none";
       });
 
 

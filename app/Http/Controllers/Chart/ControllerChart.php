@@ -13,24 +13,24 @@ class ControllerChart extends Controller
     public function view()
     {
         if (Auth::check()) {
-            $data3 = Ticket::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            $data = Ticket::all();
         // $data1 = Ticket::whereMonth('created_at', Carbon::now()->month)->get();
-        return view('chart3', compact('data3'));
+        return view('chart3', compact('data'));
         }
     }
 
     public function viewMonth()
     {
         if(Auth::check()){
-            $data2 = Ticket::whereMonth('created_at', Carbon::now()->month)->get();
-            return view('chart2', compact('data2'));
+            $data = Ticket::all();
+            return view('chart2', compact('data'));
         }
     }
 
     public function viewYear()
     {
         if(Auth::check()){
-            $data = Ticket::whereYear('created_at', Carbon::now()->year)->get();
+            $data = Ticket::all();
             return view('chart', compact('data'));
         }
     }

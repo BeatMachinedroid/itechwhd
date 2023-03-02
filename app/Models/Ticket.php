@@ -34,4 +34,9 @@ class Ticket extends Model
         return $this->hasMany(Note::class);
     }
 
+    public function textnotes()
+    {
+        return $this->hasMany(TextNotes::class);
+    }
+
 }

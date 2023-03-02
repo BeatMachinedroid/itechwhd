@@ -54,8 +54,8 @@
                     </div>
                     <div class="wrap-input100 validate-input m-b-18">
                         <select id="inputState" class="input100 form-control" name="location">
-                            <option selected>Choose location</option>
-                            <option>Kantor Cabang Bakauheni, Provinsi Lampung</option>
+                            <option>Choose location</option>
+                            <option selected>Kantor Cabang Bakauheni, Provinsi Lampung</option>
                             <option>Kantor Cabang Ambon, Provinsi Maluku</option>
                             <option>Kantor Cabang Bajoe, Provinsi Sulawesi Selatan</option>
                             <option>Kantor Cabang Banda Aceh, Provinsi Aceh</option>

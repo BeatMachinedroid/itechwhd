@@ -61,13 +61,18 @@ data: [
         @empty
             {
                 y: 0,
-                a: 0,
             }
     @endforelse
 ],
 xkey: 'y',
 ykeys: ['a'],
-labels: ['@foreach ($data as $datas) {{ $datas->updated_at->format('Y') }}, @endforeach'],
+labels: [
+            @forelse ( $data as $datas)
+                '{{ $datas->created_at->format('Y') }}',
+            @empty
+                'Data is empty'
+            @endforelse
+        ],
 barColors: ["#148BE3", "#FB7110"],
 resize: true,
 redraw: true,

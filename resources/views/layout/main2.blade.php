@@ -80,13 +80,18 @@
                 @empty
                     {
                         y: 0,
-                        a: 0,
                     }
             @endforelse
         ],
         xkey: 'y',
         ykeys: ['a'],
-        labels: ['@foreach ($data as $datas) {{ $datas->area }}, @endforeach'],
+        labels: [
+            @forelse ( $data as $datas)
+                '{{ $datas->created_at->format('M') }}',
+            @empty
+                'Data is empty'
+            @endforelse
+        ],
         barColors: ["#148BE3", "#FB7110"],
         resize: true,
         redraw: true,

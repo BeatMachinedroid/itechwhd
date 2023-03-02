@@ -9,6 +9,7 @@ use Mail;
 use Carbon\Carbon;
 use App\Models\Ticket;
 use App\Models\Note;
+use App\Models\TextNotes;
 use App\Models\Faqs;
 use App\Models\RequestType;
 use App\Models\RequestTypeCate;
@@ -19,7 +20,7 @@ class RequestController extends Controller
     public function view()
     {
         if (Auth::check()) {
-            $ticket = Ticket::whereMonth('created_at', Carbon::now()->month)->paginate(5);
+            $ticket = Ticket::whereYear('created_at', Carbon::now()->year)->paginate(5);
             return view('history', compact('ticket'));
         } else {
             return view('layout.login');
@@ -29,10 +30,10 @@ class RequestController extends Controller
     public function viewDetail($id)
     {
         if (Auth::check()) {
-            $note = Note::with('ticket')->get();
+            $note = Note::with(['user','tickets'])->get();
+            $notes = TextNotes::with(['user','tickets'])->get();
             $ticket = Ticket::find($id);
-            $tickets = Ticket::find($id)->get();
-            return view('detail', compact('ticket','tickets','note'));
+            return view('detail', compact('ticket','note','notes'));
         } else {
             return view('layout.login');
         }
@@ -56,9 +57,8 @@ class RequestController extends Controller
     {
         if (Auth::check()) {
             $user = Auth::user();
-            $username = $user->username;
             $ticket = Ticket::find($id);
-            return view('editrequest', compact('ticket','username'));
+            return view('editrequest', compact('ticket'));
         } else {
             return view('layout.login');
         }

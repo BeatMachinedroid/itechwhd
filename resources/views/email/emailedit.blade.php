@@ -50,7 +50,7 @@
                                         <span
                                             style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
                                         <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
-                                            this notification for add data form iTech app
+                                            this notification for edit data form iTech app
                                         </p>
                                     </td>
                                 </tr>

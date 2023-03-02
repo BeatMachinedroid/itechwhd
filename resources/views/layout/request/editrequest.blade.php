@@ -94,39 +94,6 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th width="100" style="text-align: center"><h6>Date</h6></th>
-                                        <td style="width: 120px">Name</td>
-                                        <th><h6>Notes</h6></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        {{-- @foreach ($collection as $item)
-
-                                        @endforeach --}}
-                                        <td>
-                                            {{-- @if ($ticket->notes !== null) --}}
-                                                {{ $ticket->updated_at }}
-                                            {{-- @endif --}}
-                                        </td>
-                                        <td>
-                                            {{ Auth::user()->username }}
-                                        </td>
-                                        <td >
-                                            <div class="notes">
-                                                <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" value="">{{ $ticket->notes }}</textarea>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Submit</button>
                             <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>

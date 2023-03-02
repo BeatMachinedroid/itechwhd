@@ -19,6 +19,16 @@ class AssetController extends Controller
         }
     }
 
+    public function viewDetail($id)
+    {
+        if (Auth::check()) {
+            $asset = Assets::find($id);
+            return view('detailass', compact('asset'));
+        } else {
+            return view('layout.login');
+        }
+    }
+
     public function viewadd()
     {
         if (Auth::check()) {

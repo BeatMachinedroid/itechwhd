@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h5 class="text-center">
                         <strong>
-                            I - Report
+                            Account - Setting
                         </strong>
                     </h5>
                 </div>

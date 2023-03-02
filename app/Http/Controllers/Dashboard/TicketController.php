@@ -18,9 +18,9 @@ class TicketController extends Controller
     public function home()
     {
         if (Auth::check()) {
-            $data = Ticket::whereMonth('created_at', Carbon::now()->month)->get();
-            $data1 = Assets::whereMonth('created_at', Carbon::now()->month)->get();
-            $data2 = Faqs::whereMonth('created_at', Carbon::now()->month)->get();
+            $data = Ticket::all();
+            $data1 = Assets::all();
+            $data2 = Faqs::all();
             $data3 = User::all();
             $count = $data->count();
             $count1 = $data1->count();

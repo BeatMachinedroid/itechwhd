@@ -10,21 +10,28 @@ class SearchController extends Controller
 {
     public function SearchHistory(Request $request)
     {
-        if($request->status !== null){
-            $ticket = Ticket::where('status', 'like', '%' . $request->status . '%')->paginate(5);
+        $number = $request->input('number');
+        $status = $request->input('status');
+        $contains = $request->input('contains');
+
+
+        if(empty($number) && !empty($status) && empty($contains)){
+            $ticket = Ticket::where('status', 'like', '%' . $status . '%')->paginate(5);
         }
 
-        else if($request->number !== null){
-            $ticket = Ticket::where('id', $request->number)->paginate(5);
+        if(empty($status) && empty($contains) && !empty($number)){
+            $ticket = Ticket::where('id', $number)->paginate(5);
         }
 
-        else if($request->contains !== null){
-            $ticket = Ticket::where('subject', $request->contains)->paginate(5);
+        if(!empty($contains) && empty($number) && empty($status)){
+            $ticket = Ticket::where('area', 'like', $contains . '%')->paginate(5);
         }
-        else{
+
+        if(empty($number) && $status == 'all' && empty($contains)){
             $ticket = Ticket::paginate(5);
         }
-            return view('history', compact('ticket'));
+
+        return view('history', compact('ticket'));
     }
 
     public function SearchAsset(Request $request)

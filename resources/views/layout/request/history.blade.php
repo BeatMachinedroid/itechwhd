@@ -18,7 +18,8 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <select class="form-control" name="status">
-                                {{-- <option value="all Active">All Active</option> --}}
+                                <option value="">Status</option>
+                                <option value="all">All Ticket</option>
                                 <option value="open">Open</option>
                                 <option value="pending">Pending</option>
                                 <option value="closed">Closed</option>
@@ -75,9 +76,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($ticket as $tiket)
+                                @forelse ($ticket as $no => $tiket)
                                     <tr>
-                                        <td class="text-center"><a href="{{ '/Ticket' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">{{ $tiket->id }}</a></td>
+                                        <td class="text-center"><a href="{{ '/Ticket' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">{{ ++$no }}</a></td>
                                                 <td>{{ $tiket->created_at->format('d / m / Y') }}</td>
                                                 <td>{{ $tiket->updated_at->format('d / m / Y')}}</td>
                                                 <td class="text-left">{{ substr($tiket->request_detail, 1 , 15) }}...</td>
@@ -117,5 +118,5 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 @endsection

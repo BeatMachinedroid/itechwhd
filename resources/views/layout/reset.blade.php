@@ -53,7 +53,7 @@
                     </div>
                 @endif
 
-                <form class="login100-form" action="{{ route('forgot.post') }}" method="post">
+                <form class="login100-form" action="{{ route('forget.post') }}" method="post">
                     @error('email')
                     <div class="alert alert-danger mt-2">
                         <strong>{{ $message }}</strong>

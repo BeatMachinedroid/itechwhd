@@ -128,23 +128,22 @@
                         <div class="form-group">
                             {{-- <h6>Divisi / Bagian</h6> --}}
                             <input type="text" class="form-control" id="usr" name="devisi"
-                                placeholder="Divisition">
+                                placeholder="Devision">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <input type="text" class="form-control" id="usr" name="regu"
-                                placeholder="Technition IT / Grub">
+                                placeholder="IT / Grub">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             {{-- <h6>Location</h6> --}}
                             <select class="form-control" id="sel2" name="location">
-                                <option value="">Location</option>
                                 <option>KANTOR CABANG - AMBON</option>
                                 <option>KANTOR CABANG - BAJOE</option>
-                                <option>KANTOR CABANG - BAKAUHENI</option>
+                                <option selected>KANTOR CABANG - BAKAUHENI</option>
                                 <option>KANTOR CABANG - BALIKPAPAN</option>
                                 <option>KANTOR CABANG - BANDA ACEH</option>
                                 <option>KANTOR CABANG - BANGKA</option>

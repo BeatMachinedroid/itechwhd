@@ -56,7 +56,7 @@
                             <tbody>
                                 @forelse ($assets as $aset)
                                     <tr>
-                                        <td style="text-align: center;">{{ $aset->id }}</td>
+                                        <td style="text-align: center;"><a href="{{ '/Assets'. $aset['id'] }}" class="btn-success badge-pill mt-0 col-md-1">{{ $aset->id }}</a></td>
                                         <td >{{ $aset->serial }}</td>
                                         <td >{{ $aset->type }}</td>
                                         <td >{{ $aset->model }}</td>

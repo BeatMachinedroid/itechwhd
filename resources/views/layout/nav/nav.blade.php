@@ -40,7 +40,7 @@
                         <ul class="submenu_class" style="display: none;">
                             <li><a href="{{ route('history') }}"> History </a></li>
                             <li><a href="{{ route('addrequest.get') }}"> Add Request </a></li>
-                            <li><a href="">Upload</a></li>
+                            <li><a href="{{ route('upload_view') }}">Upload</a></li>
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-cube"></i> <span> Assets

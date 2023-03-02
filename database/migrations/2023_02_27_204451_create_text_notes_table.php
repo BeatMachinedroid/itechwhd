@@ -13,21 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('text_notes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ticket');
             $table->unsignedBigInteger('users');
-            $table->string('tgl_done');
-            $table->string('jam');
-            $table->string('sampai_lokasi');
-            $table->string('tingkat_kondisi');
-            $table->string('tingkat_gangguan');
-            $table->string('lama_penanganan');
-            $table->string('perangkat');
-            $table->string('deskripsi');
-            $table->string('perbaikan');
-            $table->string('penyebab');
-            $table->string('solusi');
+            $table->text('notes');
             $table->timestamps();
         });
     }
@@ -39,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('text_notes');
     }
 };
