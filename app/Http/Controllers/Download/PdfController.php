@@ -12,23 +12,22 @@ class PdfController extends Controller
 {
     public function cetak_pdf($id)
     {
-        $note = Note::where('ticket', $id)->first();
+        $note = Note::where('ticket', $id)->latest()->first();
     	$ticket = Ticket::find($id);
-    	$pdf = PDF::loadview('ticket_pdf', compact('ticket','note'));
+    	$pdf = PDF::loadview('pdf.ticket_pdf', compact('ticket','note'));
         if ($pdf) {
             return $pdf->download('laporan-ticket-pdf.pdf');
         }
         else{
             return redirect()->route('detail.addnote')->with('message', 'Notes is null, please add a note first.');
         }
-
     }
 
     public function cetak_pdf_text($id)
     {
         $note = TextNotes::where('ticket', $id)->first();
     	$ticket = Ticket::find($id);
-    	$pdf = PDF::loadview('ticket_pdf_text', compact('ticket','note'));
+    	$pdf = PDF::loadview('pdf.ticket_pdf_text', compact('ticket','note'));
         if ($pdf) {
             return $pdf->download('laporan-ticket-pdf.pdf');
         }

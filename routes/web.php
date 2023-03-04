@@ -6,7 +6,6 @@ use App\Http\Controllers\Dashboard\RequestController;
 use App\Http\Controllers\Dashboard\AssetController;
 use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\PegawaiController;
-use App\Http\Controllers\Dashboard\LaporanController;
 use App\Http\Controllers\Dashboard\SearchController;
 use App\Http\Controllers\Chart\ControllerChart;
 use App\Http\Controllers\option\OptionController;
@@ -29,8 +28,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => ''], function () {
-Route::get('/', [AuthController::class, 'index'])->name('login');
+
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::get('/', function () {
+    return view('layout.login');
 });
 // ============================
 Route::get('/home', [TicketController::class, 'home'])->middleware('auth');

@@ -26,8 +26,7 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                            <img width="130" height="60" src="{{ public_path('images/logoemail.png') }}" alt="logo" style="text-align: center;">
-
+                            {{ Auth::user()->username }} has edited ticket request
                         </td>
                     </tr>
                     <tr>

@@ -1,0 +1,4 @@
+users : tisa5724_yohanes
+dbname : tisa5724_laporan
+pw : Yohanesseptian230999
+host : localhost

@@ -32,6 +32,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
+                            <h6>Problem Area</h6>
+                            <input type="text" class="form-control" id="usr" name="area" placeholder="Problem Area" value="{{ $ticket['area'] }}">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
                             <h6>Problem</h6>
                             <input type="text" class="form-control" id="usr" name="problem" value="{{ $ticket['problem'] }}">
                         </div>
@@ -42,31 +48,31 @@
                             <textarea class="form-control" rows="3" id="comment" name="request_detail" disabled >{{ $ticket['request_detail'] }}</textarea>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <h6>Petugas / Vendor</h6>
                             <input type="text" class="form-control" id="usr" name="petugas_teknisi" value="{{ $ticket['petugas_teknisi'] }}">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <h6>Divisi / Bagian</h6>
                             <input type="text" class="form-control" id="usr" name="divisi" value="{{ $ticket['devisi'] }}">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <h6>Petugas IT / Regu</h6>
                             <input type="text" class="form-control" id="usr" name="regu" value="{{ $ticket['regu'] }}">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <h6>Nama Pelapor</h6>
                             <input type="text" class="form-control" id="usr" name="pelapor" value="{{ $ticket['pelapor'] }}">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <h6>Location</h6>
                             <select class="form-control" id="sel" name=location disabled>
@@ -74,7 +80,7 @@
                         </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <h6>Status</h6>
                             <select class="form-control" id="sel1" name="status">
@@ -91,6 +97,20 @@
                                 <option >Monitoring 1 Hours</option>
                                 <option >New Status Type</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Carbon cc</h6>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input" name="checkbox">
+                                  </div>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Text input with checkbox" name="cc" value="aris.waryanto@indonesiaferry.co.id">
+                              </div>
+                                {{-- <input type="checkbox" name="check-box"> <span><input type="text" class="form-control" id="usr" name="cc" placeholder="Carbon Copy"></span> --}}
                         </div>
                     </div>
                     <div class="col-md-12">

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,6 +19,8 @@ class TicketController extends Controller
     {
         if (Auth::check()) {
             $data = Ticket::all();
+            $area = Ticket::select('area' , DB::raw('count(*) as count'))->groupBy('area')->get();
+            $areacount = Ticket::groupby('area')->count();
             $data1 = Assets::all();
             $data2 = Faqs::all();
             $data3 = User::all();
@@ -33,6 +35,8 @@ class TicketController extends Controller
                     'count3',
                     'data',
                     'data3',
+                    'area',
+                    'areacount',
                 ));
         }else{
             return view('layout.login');

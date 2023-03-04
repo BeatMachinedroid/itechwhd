@@ -52,10 +52,10 @@
     Morris.Donut({
         element: 'donut-chart',
         data: [
-            @forelse($data as $datas )
+            @forelse($area as $datas )
                 {
                     label: '{{ $datas->area }}',
-                    value: {{ $datas->groupBy('area')->count() }}
+                    value: {{ $datas->count }}
                 },
             @empty
                 {
@@ -65,34 +65,30 @@
             @endforelse
         ],
         labelColor: "#FB7110",
-        colors: ["#148BE3", "#93B5C2"],
+        colors: ["#148BE3", "#93B5C2",'red', 'green', 'blue'],
         resize: true,
         redraw: true,
     });
+
     Morris.Bar({
         element: "bar-chart",
         data: [
-            @forelse($data as $datas )
+            @forelse ($area as $datas)
                 {
-                    y: '{{ $datas->area}}',
-                    a: {{ $datas->groupBy('area')->count() }},
+                    y:'{{ $datas->area }}',
+                    a: {{ $datas->count }},
                 },
-                @empty
-                    {
-                        y: 0,
-                    }
+            @empty
+                {
+                    y: 0
+                }
             @endforelse
+
         ],
         xkey: 'y',
         ykeys: ['a'],
-        labels: [
-            @forelse ( $data as $datas)
-                '{{ $datas->created_at->format('M') }}',
-            @empty
-                'Data is empty'
-            @endforelse
-        ],
-        barColors: ["#148BE3", "#FB7110"],
+        labels: ['Total'],
+        barColors: ["#148BE3","red"],
         resize: true,
         redraw: true,
     });

@@ -178,7 +178,7 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 padding: 10px;
-background-image: url('/images/1234.jpeg');
+/* background-image: url('images/1234.jpeg'); */
 background-color: rgb(211 211 211 / 55%);;
 background-blend-mode: overlay;
 background-size: cover;

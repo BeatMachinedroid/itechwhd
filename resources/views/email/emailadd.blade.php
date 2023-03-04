@@ -26,7 +26,6 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                            <img width="130" height="60" src="{{ public_path('images/logoemail.png') }}" alt="logo" style="text-align: center;">
 
                         </td>
                     </tr>
@@ -44,7 +43,7 @@
                                     <td style="padding:0 35px;">
                                         @if (session()->has('message'))
                                         <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">
-                                                    {{ session()->get('message') }}
+                                                    {{ Auth::user()->username }} has added ticket request
                                         </h1>
                                         @endif
                                         <span

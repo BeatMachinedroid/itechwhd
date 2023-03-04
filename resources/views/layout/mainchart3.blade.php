@@ -53,10 +53,10 @@
 Morris.Bar({
 element: "bar-chart3",
 data: [
-    @forelse($data as $datas )
+    @forelse($area as $datas )
         {
-            y: '{{ $datas->area}}',
-            a: {{ $datas->groupBy('area')->count() }},
+            y: '{{ $datas->area }} on {{ $datas->date }}',
+            a: '{{ $datas->count }}',
         },
         @empty
             {
@@ -67,14 +67,8 @@ data: [
 ],
 xkey: 'y',
 ykeys: ['a'],
-labels: [
-    @forelse ( $data as $datas)
-                '{{ $datas->created_at->format('Y') }}',
-            @empty
-                'Data is empty'
-            @endforelse
-],
-barColors: ["#148BE3", "#FB7110"],
+labels: ['total'],
+barColors: ["#148BE3"],
 resize: true,
 redraw: true,
 });

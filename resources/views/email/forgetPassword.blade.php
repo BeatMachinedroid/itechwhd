@@ -23,7 +23,6 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                            <img width="240" src="https://drive.google.com/file/d/1r9O0S2_ff9-GuNk1FWriqxP1Jhbhbp74/view?usp=share_link" alt="logo">
                         </td>
                     </tr>
                     <tr>
