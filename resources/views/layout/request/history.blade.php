@@ -78,10 +78,10 @@
                             <tbody>
                                 @forelse ($ticket as $no => $tiket)
                                     <tr>
-                                        <td class="text-center"><a href="{{ '/Ticket' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">{{ ++$no }}</a></td>
+                                        <td class="text-center"><a href="{{ '/Ticket' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">#{{ $tiket->id }}</a></td>
                                                 <td>{{ $tiket->created_at->format('d / m / Y') }}</td>
                                                 <td>{{ $tiket->updated_at->format('d / m / Y')}}</td>
-                                                <td class="text-left">{{ substr($tiket->request_detail, 1 , 15) }}...</td>
+                                                <td class="text-left">{{ substr($tiket->request_detail, 1 , 20) }}...</td>
                                                 <td class="text-center">
                                                         <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span>
                                                     {{-- <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span> --}}

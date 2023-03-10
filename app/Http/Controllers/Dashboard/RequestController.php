@@ -20,7 +20,7 @@ class RequestController extends Controller
     public function view()
     {
         if (Auth::check()) {
-            $ticket = Ticket::whereYear('created_at', Carbon::now()->year)->paginate(5);
+            $ticket = Ticket::orderBy('created_at', 'desc')->paginate(5);
             return view('history', compact('ticket'));
         } else {
             return view('layout.login');

@@ -128,13 +128,13 @@
                         <div class="form-group">
                             {{-- <h6>Divisi / Bagian</h6> --}}
                             <input type="text" class="form-control" id="usr" name="devisi"
-                                placeholder="Devision">
+                                placeholder="Devisi / Devision">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <input type="text" class="form-control" id="usr" name="regu"
-                                placeholder="IT / Grub">
+                                placeholder="Group IT">
                         </div>
                     </div>
                     <div class="col-md-4">

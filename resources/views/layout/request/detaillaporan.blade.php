@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th width="100" style="text-align: center">Date</th>

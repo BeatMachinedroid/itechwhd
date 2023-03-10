@@ -34,12 +34,12 @@
                     <li class="active"> <a href="/home"><i class="fas fa-tachometer-alt"></i>
                             <span>Dashboard</span></a> </li>
                     <li class="list-divider"></li>
-                    <li class="submenu"> <a href="#"><i class="fas fa-book"></i></i> <span> Request
+                    <li class="submenu"> <a href="#"><i class="fas fa-book"></i></i> <span> Report
                             </span>
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
+                            <li><a href="{{ route('addrequest.get') }}"> Add Report </a></li>
                             <li><a href="{{ route('history') }}"> History </a></li>
-                            <li><a href="{{ route('addrequest.get') }}"> Add Request </a></li>
                             <li><a href="{{ route('upload_view') }}">Upload</a></li>
                         </ul>
                     </li>
@@ -47,23 +47,23 @@
                             </span>
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="{{ route('aset') }}"> All Asset </a></li>
                             <li><a href="{{ route('aset.get') }}"> Add Asset </a></li>
+                            <li><a href="{{ route('aset') }}"> All Asset </a></li>
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-chart-area"></i> <span> Chart </span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="{{ route('chart.view.year') }}">Chart in Year </a></li>
-                            <li><a href="{{ route('chart.view.month') }}">Chart in Month </a></li>
                             <li><a href="{{ route('chart.view.week') }}">Chart in Week </a></li>
+                            <li><a href="{{ route('chart.view.month') }}">Chart in Month </a></li>
+                            <li><a href="{{ route('chart.view.year') }}">Chart in Year </a></li>
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-comments"></i> <span> FAQs </span>
                             <span class="menu-arrow"></span></a>
                         <ul class="submenu_class" style="display: none;">
-                            <li><a href="{{ route('faq') }}">All FAQs </a></li>
                             <li><a href="{{ route('addfaq') }}"> Add FAQs </a></li>
+                            <li><a href="{{ route('faq') }}">All FAQs </a></li>
                         </ul>
                     </li>
                     <li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Staff </span> <span
