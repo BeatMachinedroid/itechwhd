@@ -27,7 +27,9 @@
             </td>
             <td style="text-align: center;">
                 <h1 style="color:#1e1e2d; font-weight:300; margin:5px;font-size:24px;font-family:'Rubik',sans-serif;">
-                    Ticketing Disturbance Event Report KSO With Telkom</h1>
+                    Ticketing System Problem Report
+                    <br>
+                    KSO Telkom</h1>
             </td>
             <td>
                 <table border="0"
@@ -42,7 +44,7 @@
                         <td style="width: 90px; text-align: left;">
                             <p
                                 style="font-family:'Rubik',sans-serif; font-size:12px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                                FT-{{ $asset->id }}-{{ $asset->serial }}.{{ $asset->updated_at->format('m') }}.{{ $asset->updated_at->format('y') }}
+                                FT-301.00.02
                             </p>
                             </td>
                     </tr>
@@ -55,7 +57,7 @@
                         <td style="text-align: center;">:</td>
                         <td style="width: 90px; text-align: left;"><p
                             style="font-family:'Rubik',sans-serif; font-size:12px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                            {{ $asset->updated_at->format('d / M / Y') }}
+                            01
                         </p></td>
                     </tr>
                     <tr>

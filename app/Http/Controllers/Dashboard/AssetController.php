@@ -12,7 +12,7 @@ class AssetController extends Controller
     public function view()
     {
         if (Auth::check()) {
-            $asset = Assets::paginate(5);
+            $asset = Assets::orderBy('created_at', 'desc')->paginate(5);
             return view('Asset',['assets'=>$asset]);
         }else{
             return view('layout.login');
@@ -22,7 +22,7 @@ class AssetController extends Controller
     public function viewDetail($id)
     {
         if (Auth::check()) {
-            $asset = Assets::find($id);
+            $asset = Assets::find(decrypt($id));
             return view('detailass', compact('asset'));
         } else {
             return view('layout.login');
@@ -62,7 +62,7 @@ class AssetController extends Controller
     public function viewedit($id)
     {
         if (Auth::check()) {
-            $asset = Assets::find($id);
+            $asset = Assets::find(decrypt($id));
             return view('Asseteditrequest',['assets'=>$asset]);
         }else{
             return view('layout.login');
@@ -86,7 +86,7 @@ class AssetController extends Controller
 
     public function deleteasset($id)
     {
-        $asset = Assets::find($id);
+        $asset = Assets::find(decrypt($id));
         $asset->delete();
         return redirect()->route('aset')->with('message','data is deleted');
     }

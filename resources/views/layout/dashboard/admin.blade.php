@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="card board1 fill">
-                <a href="/history" class="menu">
+                <a href="{{route('history')}}" class="menu">
                     <div class="card-body ">
                         <div class="dash-widget-header">
                             <div class="col mr-2">
@@ -33,7 +33,7 @@
         </div>
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="card board1 fill">
-                <a href="">
+                <a href="{{ route('aset') }}">
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div class="col mr-2">
@@ -52,7 +52,7 @@
         </div>
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="card board1 fill">
-                <a href="">
+                <a href="{{route('faq')}}">
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div class="col mr-2">
@@ -77,7 +77,7 @@
         </div>
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="card board1 fill">
-                <a href="">
+                <a href="{{route('pegawai')}}">
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div class="col mr-2">

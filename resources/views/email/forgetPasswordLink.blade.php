@@ -65,12 +65,12 @@
                             value="{{ Session::get('email') }}" />
                     </div>
                     <div class="wrap-input100 form-group m-b-15">
-                        <input id="password-field" type="password" class="form-control" placeholder="Password"
+                        <input id="password-field" type="password" class="form-control" placeholder="New Password"
                             name="password" required />
                         <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                     </div>
                     <div class="wrap-input100 form-group m-b-15">
-                        <input id="password-field-conf" type="password" placeholder="Password"
+                        <input id="password-field-conf" type="password" placeholder="Confirm New Password"
                             class="form-control @error('password') is-invalid @enderror" name="password_confirmation"
                             required autocomplete="current-password">
                             @error('password')

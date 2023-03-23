@@ -26,11 +26,10 @@ class DatabaseSeeder extends Seeder
             'email'=>'it.whdbakauheni@indonesiaferry.co.id',
             'location'=>'KANTOR CABANG - BAKAUHENI',
             'password'=>bcrypt('@K4mun4ny4?'),
-            'role'=>'admin',
+            'role'=>'Admin',
             'created_at' => date('Y-m-d'),
             'updated_at' => date('Y-m-d')
             ]
-
         ]);
 
         DB::table('request_types')->insert([

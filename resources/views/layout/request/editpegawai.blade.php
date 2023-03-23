@@ -1,71 +1,52 @@
 @section('content')
     <div class="page-header">
         <div class="row align-items-center">
-            <div class="col">
 
-            </div>
         </div>
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="{{ route('settings') }}" method="post">
-                @method('PUT')
-                <input type="hidden" name="id" value="{{ $user->id }}">
-
+            <form action="{{ route('edit.proses') }}" method="POST">
                 <div class="card-body">
                     <h5 class="text-center">
                         <strong>
-                            Account - Setting
+                            I - Staf Report Edit
                         </strong>
                     </h5>
                 </div>
-                @if (session()->has('message'))
-                    <div class="alert alert-success">
-                        {{ session()->get('message') }}
-                    </div>
-                    @endif
-
                 @csrf
-
-                <div class="row">
-                    {{-- sub3 --}}
+                @method('PUT')
+                <div class="row formtype">
+                    <input type="hidden" name="id" value="{{ $user->id }}">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <h6>username</h6>
-                            @error('Username')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <input type="text" class="form-control" id="usr" name="username" placeholder="Username"
-                                value="{{ $user->username }}">
+                            <h6>Username</h6>
+                            <input type="text" class="form-control" id="usr" name="username" value="{{ $user->username }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <h6>Email</h6>
-                            @error('Email')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <input type="text" class="form-control" id="usr" name="email" placeholder="Email"
-                                value="{{ $user->email }}">
+                            <input type="text" class="form-control" id="usr" name="email" value="{{ $user->email }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <h6>phone</h6>
-                            @error('phone')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <input type="text" class="form-control" id="usr" name="phone" placeholder="Phone"
-                                value="{{ $user->phone }}">
+                            <h6>Phone</h6>
+                            <input type="text" class="form-control" id="usr" name="phone" value="{{ $user->phone }}">
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Role</h6>
+                            <select class="form-control" id="sel1" name="role">
+                                <option selected>{{ $user->role }}</option>
+                                <option >User</option>
+                                <option >Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <div class="form-group">
                             <h6>Location</h6>
                             <select class="form-control" id="sel2" name="location">
@@ -488,21 +469,6 @@
                                 <option>PELABUHAN UPT - WEJIM</option>
                                 <option>PELABUHAN UPT - YENANAS</option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h6>Password</h6>
-                            <input id="password-field" type="password" class="form-control" placeholder="New Password"
-                                name="password" value=""/>
-                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h6>Role</h6>
-                            <input type="text" class="form-control" id="usr" name="phone" placeholder="Phone"
-                                value="{{ $user->role }}" disabled>
                         </div>
                     </div>
                     <div class="col-md-12">

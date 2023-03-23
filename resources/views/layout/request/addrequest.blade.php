@@ -126,9 +126,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            {{-- <h6>Divisi / Bagian</h6> --}}
+                            {{-- <h6>Division</h6> --}}
                             <input type="text" class="form-control" id="usr" name="devisi"
-                                placeholder="Devisi / Devision">
+                                placeholder="Divisi / Devision">
                         </div>
                     </div>
                     <div class="col-md-4">

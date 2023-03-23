@@ -27,8 +27,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::get('/', function () {
     return view('layout.login');
@@ -43,40 +41,43 @@ Route::get('/reset',[AuthController::class,'resetview'])->name('forget.get');
 Route::post('/resett',[AuthController::class,'submitemail'])->name('forget.post');
 Route::get('/reset{token}',[AuthController::class,'showResetpw'])->name('reset.get');
 Route::post('/reset',[AuthController::class,'submitResetPasswordForm'])->name('reset.post');
-Route::get('/settings{id}',[AuthController::class,'ViewSetting']);
-Route::put('/settings',[AuthController::class,'AccountSetting'])->name('settings');
 // ============================
-Route::get('/aset',[AssetController::class,'view'])->name('aset');
-Route::get('/asetadd',[AssetController::class,'viewadd'])->name('aset.get');
-Route::get('/asetedit{id}',[AssetController::class,'viewedit']);
-Route::get('/Assets{id}',[AssetController::class,'viewDetail']);
-Route::put('/upaset',[AssetController::class,'update']);
-Route::post('/addaset',[AssetController::class,'addasset']);
-Route::get('/delset{id}',[AssetController::Class,'deleteasset']);
+Route::get('/asset',[AssetController::class,'view'])->name('aset');
+Route::get('/asset/add',[AssetController::class,'viewadd'])->name('aset.get');
+Route::get('/asset/{id}/edit',[AssetController::class,'viewedit']);
+Route::get('/asset/{id}/detail',[AssetController::class,'viewDetail']);
+Route::put('/asset/update',[AssetController::class,'update'])->name('aset.update');
+Route::post('/asset/add',[AssetController::class,'addasset'])->name('aset.add');
+Route::get('/asset/{id}/delete',[AssetController::Class,'deleteasset']);
+Route::get('/asset/search', [SearchController::class,'SearchAsset'])->name('search.asset');
 // ============================
 Route::get('/faq',[FaqController::class,'view'])->name('faq');
-Route::get('/addfaq',[FaqController::class,'viewadd'])->name('addfaq');
-Route::get('/faqedit{id}',[FaqController::class,'viewedit']);
-Route::post('/reqfaq',[FaqController::class,'add']);
-Route::put('/editfaq',[FaqController::class,'edit']);
-Route::get('/delfaq{id}',[FaqController::class,'delete']);
+Route::get('/faq/add',[FaqController::class,'viewadd'])->name('addfaq');
+Route::get('/faq/{id}/edit',[FaqController::class,'viewedit']);
+Route::post('/faq/add/proses',[FaqController::class,'add'])->name('add.faq');
+Route::put('/faq/edit/proses',[FaqController::class,'edit'])->name('edit.faq');
+Route::get('/faq/{id}/delete',[FaqController::class,'delete']);
+Route::get('/faq/search', [SearchController::class,'SearchFaqs'])->name('search.faq');
 // ============================
 Route::get('/staf',[PegawaiController::class,'view'])->name('pegawai');
-Route::get('/stafadd',[PegawaiController::class,'viewadd']);
-Route::get('/stafedit',[PegawaiController::class,'viewedit']);
-Route::get('/delstaf{id}',[PegawaiController::class,'delete']);
-Route::post('/addstaf',[PegawaiController::class,'add']);
+Route::get('/staf/{id}/edit',[PegawaiController::class,'edit']);
+Route::get('/staf/{id}/delete',[PegawaiController::class,'delete']);
+Route::put('/staf/edit/proses',[PegawaiController::class,'proses'])->name('edit.proses');
+Route::get('/staf/{id}/setting',[AuthController::class,'ViewSetting']);
+Route::get('/staf/search', [SearchController::class, 'SearchPegawai'])->name('search.staf');
+Route::put('/settings',[AuthController::class,'AccountSetting'])->name('settings');
 // ============================
-Route::get('/history',[RequestController::Class,'view'])->name('history');
-Route::put('/history',[TicketController::Class,'Cancel'])->name('history.cancel');
-Route::get('/addrequest',[RequestController::Class,'viewadd'])->name('addrequest.get');
-Route::post('/addrequest',[RequestController::Class,'addrequst'])->name('addrequest.post');
-Route::get('/editrequest{id}',[RequestController::Class,'viewedit']);
-Route::put('/editreq',[RequestController::Class,'editrequest']);
-Route::get('/delreq{id}',[RequestController::Class,'delreq']);
-Route::get('/Ticket{id}',[RequestController::class,'viewDetail']);
-Route::post('/detail/notes',[NotesController::Class,'addnotes'])->name('detail.addnote');
-Route::post('/detail/notes/text',[NotesController::Class,'textnote'])->name('detail.addnote.text');
+Route::get('/report/history',[RequestController::Class,'view'])->name('history');
+Route::put('/report/cancel',[TicketController::Class,'Cancel'])->name('history.cancel');
+Route::get('/add/report',[RequestController::Class,'viewadd'])->name('addrequest.get');
+Route::post('/add/report/proses',[RequestController::Class,'addrequst'])->name('addrequest.post');
+Route::get('/report/{id}/edit',[RequestController::Class,'viewedit']);
+Route::put('/report/edit/proses',[RequestController::Class,'editrequest'])->name('editrequest.edit');;
+Route::get('/report/{id}/delete',[RequestController::Class,'delreq']);
+Route::get('/report/{id}/detail',[RequestController::class,'viewDetail']);
+Route::post('/report/detail/notes',[NotesController::Class,'addnotes'])->name('detail.addnote');
+Route::post('/report/detail/notes/text',[NotesController::Class,'textnote'])->name('detail.addnote.text');
+Route::get('/report/search', [SearchController::class,'SearchHistory'])->name('search.history');
 // ============================
 Route::get('/chart week',[ControllerChart::class,'view'])->name('chart.view.week');
 Route::get('/chart month',[ControllerChart::class,'viewMonth'])->name('chart.view.month');
@@ -90,7 +91,5 @@ Route::get('/upload',[UploadController::class,'view'])->name('upload_view');
 Route::post('/upload/post',[UploadController::class,'upload'])->name('upload.post');
 Route::get('/upload/download{id}',[UploadController::class, 'download']);
 Route::get('/upload/delete{id}',[UploadController::class, 'delete']);
-// ============================
-Route::get('/search', [SearchController::class,'SearchHistory'])->name('search.history');
 // ============================
 

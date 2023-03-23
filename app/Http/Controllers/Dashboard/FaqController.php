@@ -12,8 +12,8 @@ class FaqController extends Controller
     public function view()
     {
         if (Auth::check()) {
-            $faq = Faqs::paginate(5);
-            return view('faq',['faqs' => $faq]);
+            $faqs = Faqs::paginate(5);
+            return view('faq', compact('faqs'));
         }else{
             return view('layout.login');
         }
@@ -31,7 +31,7 @@ class FaqController extends Controller
     public function viewedit($id)
     {
         if (Auth::check()) {
-            $faq = Faqs::find($id);
+            $faq = Faqs::find(decrypt($id));
             return view('editfaq', ['faqs' => $faq]);
         } else {
             return view('layout.login');
@@ -55,7 +55,7 @@ class FaqController extends Controller
         ];
 
         if (Faqs::create($data)) {
-            return redirect()->route('faq');
+            return redirect()->route('faq')->with('message','Data is saved successfully');
         }
 
     }
@@ -70,13 +70,13 @@ class FaqController extends Controller
             ]);
 
         return redirect()
-        ->route('history')
-        ->with(['success' => 'Data Berhasil Diupdate!']);
+        ->route('faq')
+        ->with('message','Data is edited successfully');
     }
 
     public function delete($id)
     {
-        $faq = Faqs::find($id);
+        $faq = Faqs::find(decrypt($id));
         $faq->delete();
         return redirect()->route('faq');
     }

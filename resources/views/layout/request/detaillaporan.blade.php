@@ -17,7 +17,7 @@
                                 @csrf
                                 @method('put')
                                 <input type="hidden" name="id" value="{{ $ticket->id }}">
-                                <button type="submit" class="btn btn-white">Cencel Ticket</button>
+                                <button type="submit" class="btn btn-white">Cancel</button>
                                 <a href="{{ '/ticket/pdf' . $ticket['id'] }} " class="btn btn-white">PDF</a>
                                 <a href="{{ '/ticket/pdf/text' . $ticket['id'] }} " class="btn btn-white">PDF-Text</a>
                         </form>
@@ -90,14 +90,14 @@
                                 </tr>
                                 <tr>
                                     <td width='150'>
-                                        <strong>Devition </strong>
+                                        <strong>Division</strong>
                                     </td>
                                     <td><strong>:</strong></td>
                                     <td>{{ $ticket->devisi}}</td>
                                 </tr>
                                 <tr>
                                     <td width='150'>
-                                        <strong>Grub </strong>
+                                        <strong>Group IT </strong>
                                     </td>
                                     <td><strong>:</strong></td>
                                     <td>{{ $ticket->regu}}</td>
@@ -114,35 +114,32 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-striped table-hover" >
                             <thead>
                                 <tr>
                                     <th width="100" style="text-align: center">Date</th>
                                     <th style="width: 150px;">User</th>
+                                    <th width="100">Type</th>
                                     <th>Notes</th>
-                                    <th style="text-align: right;">
-                                        <a class="btn btn-white" id="show-display">Notes</a>
-                                    </th>
-                                    <th style="text-align: right; width: 125px">
-                                        <a class="btn btn-white" id="show-notes-text">Text Notes</a>
-                                    </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody >
                                     @foreach ($note as $item)
-                                <tr  id="display-notes">
-                                            <td style="width: 200px; text-align: center;">
-                                                    {{ $item->updated_at->format('d / M / Y , h.i') }}
-                                            </td>
-                                            <td style="width: 150px;">
-                                                    {{ $item->user->username }}
-                                            </td>
-                                            <td colspan="3">
-                                                <div class="notes">
-                                                    <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" disabled>
+                                            <tr id="display-notes">
+                                                <td style="width: 200px; text-align: center;">
+                                                        {{ $item->updated_at->format('d / M / Y , h.i') }}
+                                                </td>
+                                                <td style="width: 150px;">
+                                                        {{ $item->user->username }}
+                                                </td>
+                                                <td>Normal</td>
+                                                <td colspan="2">
+                                                    <div class="notes">
+                                                        <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" disabled>
 Tanggal Masalah  : {{ $item->updated_at->format('d / m / Y') }}
 Tanggal Done     : {{ $item->tgl_done }}
 Jam              : {{ $item->jam }}
+lama penanganan  : {{$item->lama_penanganan}}
 Sampai Lokasi    : {{ $item->sampai_lokasi }}
 Tingkat Kondisi  : {{ $item->tingkat_kondisi }}
 Tingkat Gangguan : {{ $item->tingkat_gangguan }}
@@ -151,27 +148,27 @@ Deskripsi        : {{ $item->deskripsi }}
 Perbaikan        : {{ $item->perbaikan }}
 Penyebab         : {{ $item->penyebab }}
 Solusi           : {{ $item->solusi }}
-                                                    </textarea>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                        @foreach ($notes as $item)
-                                <tr style="display: none;" id="display-notes-text">
+                                                        </textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    @endforeach
+                                @foreach ($notes as $item)
+                                <tr id="display-notes-text">
                                             <td style="width: 200px; text-align: center;">
                                                     {{ $item->updated_at->format('d / m / Y , h.i') }}
                                             </td>
                                             <td style="width: 150px;">
                                                     {{ $item->user->username }}
                                             </td>
-                                            <td colspan="3">
+                                            <td>Text-only</td>
+                                            <td colspan="2">
                                                 <div class="notes">
                                                     <textarea rows="5" type="text" class="form-control note" id="usr" name="notes" disabled>{{ $item->notes }}</textarea>
                                                 </div>
                                             </td>
-                                        </tr>
-                                        @endforeach
-                            </tbody>
+                                </tr>
+                                @endforeach
                             <tbody>
                                 <tr>
                                     <td colspan="5" style="text-align: right">
@@ -234,7 +231,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="tgl_done" placeholder="Tanggal Done">
+                                        <input type="text" class="form-control" id="usr" name="tgl_done" placeholder="Date Of Done">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -254,7 +251,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="sampai_lokasi" placeholder="Sampai lokasi">
+                                        <input type="text" class="form-control" id="usr" name="sampai_lokasi" placeholder="Arrived at the location">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -264,7 +261,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="tingkat_kondisi" placeholder="Lavel Kondisi">
+                                        <input type="text" class="form-control" id="usr" name="tingkat_kondisi" placeholder="Condition Levels">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -274,7 +271,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="tingkat_gangguan" placeholder="level problem">
+                                        <input type="text" class="form-control" id="usr" name="tingkat_gangguan" placeholder="Problem Levels">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -284,7 +281,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="lama_penanganan" placeholder="Lama Penanganan">
+                                        <input type="text" class="form-control" id="usr" name="lama_penanganan" placeholder="Long Handling">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -294,7 +291,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="deskripsi" placeholder="Deskripsi">
+                                        <input type="text" class="form-control" id="usr" name="deskripsi" placeholder="Description">
                                     </div>
                                 </div>
                                 <div class="col-md-4">

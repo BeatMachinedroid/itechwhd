@@ -2,23 +2,24 @@
     <div class="header">
         <div class="header-left">
             {{-- <a href="index.html" class="logo"> <span class="logoclass">ITECH</span> </a> --}}
-            <img src="images/logo1.png" width="80" height="70" alt="logo">
+            <img src="{{ asset('images/logo1.png') }}" width="80" height="70" alt="logo">
         </div>
         <a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
         <a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
         <ul class="nav user-menu">
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img
-                            class="rounded-circle" src="images/akun.png" width="31" alt="Soeng Souy"></span> </a>
+                            class="rounded-circle" src="{{ asset('images/akun.png') }}" width="31" alt="Soeng Souy"></span> </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
-                        <div class="avatar avatar-sm"> <img src="images/akun.png" alt="User Image"
+                        <div class="avatar avatar-sm"> <img src="{{ asset('images/akun.png') }}" alt="User Image"
                                 class="avatar-img rounded-circle"> </div>
                         <div class="user-text">
                             <h6>{{ Auth::user()->username }}</h6>
+                            <span> ~ {{ Auth::user()->role }}</span>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="{{ '/settings' . Auth::user()->id }}">Account Settings</a>
+                    <a class="dropdown-item" href="{{ '/staf/' . encrypt(Auth::user()->id) . '/setting' }}">Account Settings</a>
                     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
             </li>

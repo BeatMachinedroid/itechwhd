@@ -4,7 +4,7 @@
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="/reqfaq" method="post">
+            <form action="{{ route('add.faq') }}" method="post">
                 @csrf
                 <div class="card-body">
                     <h5 class="text-center">

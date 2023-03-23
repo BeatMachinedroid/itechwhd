@@ -8,25 +8,25 @@
 </div>
 <div class="row">
         <div class="col-lg-12">
-            <form>
+            <form action="{{ route('search.staf') }}">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
                             {{-- <label>No.</label> --}}
-                            <input type="text" class="form-control" placeholder="Role">
+                            <input type="text" class="form-control" placeholder="Username" name="username">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             {{-- <label>Contains</label> --}}
-                            <input type="text" class="form-control" placeholder="Contains">
+                            <input type="text" class="form-control" placeholder="Email" name="email">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <a href="#" class="btn btn-success btn-block mt-0 search_button">
+                            <button type="submit" class="btn btn-success btn-block mt-0">
                                 Search
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -42,6 +42,11 @@
                         User Account
                     </h4>
                 </div>
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                 <div class="history">
                     <div class="table-responsive">
                         <table class="table table-striped mb-0">
@@ -52,6 +57,9 @@
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>Create At</th>
+                                    @if (Auth::User()->role == 'Admin')
+                                    <th style="text-align: center;">action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,6 +70,23 @@
                                     <td>{{ $pegawai->email }}</td>
                                     <td>{{ $pegawai->role }}</td>
                                     <td>{{ $pegawai->created_at }}</td>
+                                    @if (Auth::User()->role == 'Admin')
+                                    <td style="text-align: center;">
+                                        <div class="dropdown dropdown-action">
+                                            <a class="action-icon dropdown-toggle"
+                                                data-toggle="dropdown" aria-expanded="false"><i
+                                                    class="fas fa-ellipsis-v ellipse_color"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="{{ '/staf/' . encrypt($pegawai->id) . '/edit' }}"><i
+                                                        class="fas fa-pencil-alt m-r-5"></i>
+                                                    Edit</a>
+                                                <a class="dropdown-item" href="{{ '/staf/' . encrypt($pegawai->id) . '/delete' }}">
+                                                    <i class="fas fa-trash-alt m-r-5"></i>
+                                                    Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    @endif
                                 </tr>
                                 @empty
                                 <div class="alert alert-danger">

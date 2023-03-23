@@ -30,9 +30,9 @@ class RequestController extends Controller
     public function viewDetail($id)
     {
         if (Auth::check()) {
-            $note = Note::with(['user','tickets'])->get();
-            $notes = TextNotes::with(['user','tickets'])->get();
-            $ticket = Ticket::find($id);
+            $note = Note::where('ticket', decrypt($id))->with('user')->get();
+            $notes = TextNotes::where('ticket', decrypt($id))->with('user')->get();
+            $ticket = Ticket::find(decrypt($id));
             return view('detail', compact('ticket','note','notes'));
         } else {
             return view('layout.login');
@@ -46,7 +46,7 @@ class RequestController extends Controller
             $faq = Faqs::all();
             // ==================================================================================
             return view('addrequest', compact(
-                'request_types',
+                'request_types'
             ));
         } else {
             return view('layout.login');
@@ -57,7 +57,7 @@ class RequestController extends Controller
     {
         if (Auth::check()) {
             $user = Auth::user();
-            $ticket = Ticket::find($id);
+            $ticket = Ticket::find(decrypt($id));
             return view('editrequest', compact('ticket'));
         } else {
             return view('layout.login');
@@ -123,7 +123,7 @@ class RequestController extends Controller
 
     public function delreq($id)
     {
-        $ticket = Ticket::find($id);
+        $ticket = Ticket::find(decrypt($id));
         $ticket->delete();
         return redirect()->route('history')->with('message','Data is deleted!');
     }

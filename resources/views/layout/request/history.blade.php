@@ -60,8 +60,12 @@
                     <div class="text-right">
                         <a href="{{ route('cetak_excel') }} " class="btn btn-white">Download Excel</a>
                     </div>
-
                 </div>
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                 <div class="history">
                     <div class="table-responsive">
                         <table class="table table-striped mb-0">
@@ -72,34 +76,45 @@
                                     <th style="width: 150px">Update</th>
                                     <th class="text-left">Request Detail</th>
                                     <th class="text-center">Status</th>
+                                    @if (Auth::User()->role == 'Admin')
                                     <th class="text-center">Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($ticket as $no => $tiket)
+                                @forelse ($ticket as $tiket)
                                     <tr>
-                                        <td class="text-center"><a href="{{ '/Ticket' .  $tiket['id'] }}" class="btn-success badge-pill mt-0 col-md-1">#{{ $tiket->id }}</a></td>
+                                        <td class="text-center"><a href="{{ '/report/' .  encrypt($tiket->id) . '/detail' }}" class="btn-success badge-pill mt-0 col-md-1">#{{ $tiket->id }}</a></td>
                                                 <td>{{ $tiket->created_at->format('d / m / Y') }}</td>
                                                 <td>{{ $tiket->updated_at->format('d / m / Y')}}</td>
-                                                <td class="text-left">{{ substr($tiket->request_detail, 1 , 20) }}...</td>
+                                                <td class="text-left">{{ substr($tiket->request_detail, 0 , 25) }}...</td>
                                                 <td class="text-center">
-                                                        <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span>
+                                                        @if ($tiket->status == 'open')
+                                                            <span class="badge badge-pill bg-primary inv-badge">{{ $tiket->status }}</span>
+                                                        @else
+                                                            <span class="badge badge-pill bg-danger inv-badge">{{ $tiket->status }}</span>
+                                                        @endif
                                                     {{-- <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span> --}}
                                                 </td>
+                                        @if (Auth::User()->role == 'Admin')
                                         <td class="text-center col-md-1">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
                                                     aria-expanded="false"><i
                                                         class="fas fa-ellipsis-v ellipse_color"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="{{ '/editrequest' . $tiket['id'] }}"><i
+                                                    <a class="dropdown-item" href="{{ '/report/' . encrypt($tiket->id) . '/edit'}}"><i
                                                             class="fas fa-pencil-alt m-r-5"></i>
                                                         Edit</a>
-                                                    <a class="dropdown-item" href="{{ '/delreq' . $tiket['id'] }}">
+                                                    <a class="dropdown-item" href="{{ '/report/' . encrypt($tiket->id) . '/delete' }}">
                                                         <i class="fas fa-trash-alt m-r-5"></i>
                                                         Delete</a>
 
                                                 </div>
+                                            </div>
+                                        </td>
+                                        @endif
+
                                     </tr>
                                 @empty
                                     <div class="alert alert-danger">

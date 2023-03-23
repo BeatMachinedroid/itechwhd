@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('location');
             $table->string('password');
-            $table->string('role')->default('pegawai');
+            $table->string('role')->default('User');
             $table->timestamps();
         });
     }

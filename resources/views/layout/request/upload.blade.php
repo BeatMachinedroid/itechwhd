@@ -16,7 +16,11 @@
                         </strong>
                     </h5>
                 </div>
-
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                 @csrf
 
                 <div class="row">
@@ -35,6 +39,7 @@
                     </div>
                 </div>
             </form>
+            @if (Auth::user()->role == 'Admin')
             <div class="history">
                 <div class="table-responsive">
                     <table class="table table-striped mb-0">
@@ -52,7 +57,7 @@
                                 <tr>
                                     <td class="text-center">{{ ++$no }}</td>
                                     <td>{{ $files->created_at->format('d / m / Y') }}</td>
-                                    <td>{{ $files->user->username }}</td>
+                                    <td>{{ $files->user->email }}</td>
                                     <td class="text-left">
                                         {{ $files->files }}
                                     </td>
@@ -84,6 +89,7 @@
                     {{ $file->links('vendor.pagination.costume') }}
                 </div>
             </div>
+            @endif
         </div>
     </div>
     </div>

@@ -4,7 +4,7 @@
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="/addaset" method="POST">
+            <form action="{{ route('aset.add') }}" method="POST">
                 <div class="card-body">
                     <h5 class="text-center">
                         <strong>

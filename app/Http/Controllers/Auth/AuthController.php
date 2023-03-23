@@ -151,7 +151,7 @@ class AuthController extends Controller
      public function ViewSetting($id)
      {
         if (Auth::check()) {
-            $user = User::find($id);
+            $user = User::find(decrypt($id));
             return view('Setting', compact('user'));
         } else {
             return view('layout.login');
@@ -161,11 +161,22 @@ class AuthController extends Controller
      public function AccountSetting(Request $request)
      {
         $user = User::find($request->id);
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->location = $request->location;
-        $user->save();
-        return back();
+        if(empty($request->password)){
+            $user->update([
+                'username' => $request->username,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'location' =>$request->location,
+            ]);
+        }else{
+            $user->update([
+                'username' => $request->username,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'location' =>$request->location,
+                'password' => bcrypt($request->password),
+            ]);
+        }
+        return back()->with('message','Data is updated successfully');
      }
 }

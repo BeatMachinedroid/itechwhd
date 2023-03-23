@@ -42,7 +42,7 @@
                         <td style="width: 90px; text-align: left;">
                             <p
                                 style="font-family:'Rubik',sans-serif; font-size:12px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                                FT-{{ $ticket->id }}-{{ $note->id }}.{{ $note->updated_at->format('m') }}.{{ $note->updated_at->format('y') }}
+                                FT-301.00.02
                             </p>
                             </td>
                     </tr>
@@ -55,7 +55,7 @@
                         <td style="text-align: center;">:</td>
                         <td style="width: 90px; text-align: left;"><p
                             style="font-family:'Rubik',sans-serif; font-size:12px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                            {{ $ticket->updated_at->format('d / M / Y') }}
+                            01
                         </p></td>
                     </tr>
                     <tr>
@@ -90,11 +90,8 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 90px; height: 300px;">
-                <h1
-                    style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
-                    {{ $note->notes }}
-                </h1>
+            <td>
+                <textarea id="message" name="message" rows="4">{{ $notes->notes }}</textarea>
             </td>
         </tr>
     </table>

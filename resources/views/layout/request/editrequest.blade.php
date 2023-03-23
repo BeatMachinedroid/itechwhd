@@ -4,7 +4,7 @@
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="/editreq" method="post">
+            <form action="{{ route('editrequest.edit') }}" method="post">
                 <div class="card-body">
                     <h5 class="text-center">
                         <strong>
@@ -24,12 +24,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <h6>Subject</h6>
-                            <input type="text" class="form-control" id="usr" disabled name="subject" value="{{ $ticket['subject'] }}">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <h6>Subject</h6>
+                                <input type="text" class="form-control" id="usr" name="subject" value="{{ $ticket['subject'] }}">
+                            </div>
                         </div>
-                    </div>
+
                     <div class="col-md-4">
                         <div class="form-group">
                             <h6>Problem Area</h6>
@@ -45,7 +47,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <h6>Detail Request</h6>
-                            <textarea class="form-control" rows="3" id="comment" name="request_detail" disabled >{{ $ticket['request_detail'] }}</textarea>
+                            <textarea class="form-control" rows="3" id="comment" name="request_detail"  >{{ $ticket['request_detail'] }}</textarea>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -85,17 +87,16 @@
                             <h6>Status</h6>
                             <select class="form-control" id="sel1" name="status">
                                 <option selected="selected">{{ $ticket['status'] }}</option>
-                                <option value="All Active">All Active</option>
-                                <option >Open</option>
-                                <option >Pending</option>
-                                <option >Closed</option>
-                                <option >Cancelled</option>
-                                <option >Resolved</option>
-                                <option >Monitoring</option>
-                                <option >Monitoring Critical</option>
-                                <option >Pending Before Closed</option>
-                                <option >Monitoring 1 Hours</option>
-                                <option >New Status Type</option>
+                                <option value="open">Open</option>
+                                <option value="pending">Pending</option>
+                                <option value="closed">Closed</option>
+                                <option value="cancelled">Cancelled</option>
+                                <option value="resolved">Resolved</option>
+                                <option value="monitoring">Monitoring</option>
+                                <option value="monitoring Critical">Monitoring Critical</option>
+                                <option value="pending Before Closed">Pending Before Closed</option>
+                                <option value="monitoring 1 Hours">Monitoring 1 Hours</option>
+                                <option value="new Status Type">New Status Type</option>
                             </select>
                         </div>
                     </div>

@@ -20,6 +20,7 @@ class TicketController extends Controller
         if (Auth::check()) {
             $data = Ticket::all();
             $area = Ticket::select('area' , DB::raw('count(*) as count'))->groupBy('area')->get();
+            $area2 = Ticket::all();
             $areacount = Ticket::groupby('area')->count();
             $data1 = Assets::all();
             $data2 = Faqs::all();
@@ -37,6 +38,7 @@ class TicketController extends Controller
                     'data3',
                     'area',
                     'areacount',
+                    'area2'
                 ));
         }else{
             return view('layout.login');

@@ -6,11 +6,11 @@
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="/upaset" method="POST">
+            <form action="{{ route('aset.update') }}" method="POST">
                 <div class="card-body">
                     <h5 class="text-center">
                         <strong>
-                            I - Asset Report
+                            I - Asset Report Edit
                         </strong>
                     </h5>
                 </div>
@@ -60,7 +60,7 @@
                         <div class="form-group">
                             <h6>Location</h6>
                             <select class="form-control" id="sel2" name="location">
-                                <option value="">Location</option>
+                                <option>{{ $assets->location }}</option>
                                 <option>KANTOR CABANG - AMBON</option>
                                 <option>KANTOR CABANG - BAJOE</option>
                                 <option>KANTOR CABANG - BAKAUHENI</option>

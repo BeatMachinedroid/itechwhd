@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\Assets;
+use App\Models\Faqs;
+use App\Models\User;
 
 class SearchController extends Controller
 {
@@ -16,19 +19,27 @@ class SearchController extends Controller
 
 
         if(empty($number) && !empty($status) && empty($contains)){
-            $ticket = Ticket::where('status', 'like', '%' . $status . '%')->paginate(5);
+            $ticket = Ticket::where('status', 'like', '%' . $status . '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if(!empty($number) && !empty($status) && !empty($contains)){
+            $ticket = Ticket::where('status', 'like', '%' . $status . '%')
+            ->where('area', 'like', $contains . '%')
+            ->where('area', 'like', $contains . '%')->orderBy('created_at', 'desc')->paginate(5);
         }
 
         if(empty($status) && empty($contains) && !empty($number)){
-            $ticket = Ticket::where('id', $number)->paginate(5);
+            $ticket = Ticket::where('id', $number)->orderBy('created_at', 'desc')->paginate(5);
         }
 
         if(!empty($contains) && empty($number) && empty($status)){
-            $ticket = Ticket::where('area', 'like', $contains . '%')->paginate(5);
+            $ticket = Ticket::where('area', 'like', $contains . '%')->orderBy('created_at', 'desc')->paginate(5);
         }
 
         if(empty($number) && $status == 'all' && empty($contains)){
-            $ticket = Ticket::paginate(5);
+            $ticket = Ticket::orderBy('created_at', 'desc')->paginate(5);
+        }
+        if(empty($number) && empty($status) && empty($contains)){
+            $ticket = Ticket::orderBy('created_at', 'desc')->paginate(5);
         }
 
         return view('history', compact('ticket'));
@@ -36,30 +47,63 @@ class SearchController extends Controller
 
     public function SearchAsset(Request $request)
     {
+        $contains = $request->input('contains');
+
         if($request->contains !== null){
-            $asset = Asset::where('subject', $request->contains)->paginate(5);
+            $assets = Assets::where('serial','like', $request->contains . '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if($request->contains !== null){
+            $assets = Assets::where('model','like', $request->contains. '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if($request->contains !== null){
+            $assets = Assets::where('type','like', $request->contains. '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if($request->contains == null){
+            $assets = Assets::orderBy('created_at', 'desc')->paginate(5);
         }
 
-        return view('asset', compact('asset'));
+        return view('Asset', compact('assets'));
 
     }
 
     public function SearchFaqs(Request $request)
     {
-        if($request->category !== null){
-            $faqs = Faqs::where('status', 'like', '%' . $request->status . '%')->paginate(5);
+        $cate = $request->input('cate');
+        $contains = $request->input('contains');
+
+        if(!empty($contains) && empty($cate)){
+            $faqs = Faqs::where('judul', 'like', $contains . '%')->orWhere('solusi', 'like', $contains . '%')->orderBy('created_at', 'desc')->paginate(5);
         }
-        else if($request->contains !== null){
-            $faqs = Faqs::where('status', 'like', '%' . $request->status . '%')->paginate(5);
+        if(!empty($contains) && !empty($cate)){
+            $faqs = Faqs::where('kategori', 'like', $cate . '%')->where('judul', 'like', $contains . '%')->orderBy('created_at', 'desc')->paginate(5);
         }
-        else{
-            $faqs = Faqs::paginate(5);
+        if(empty($contains) && !empty($cate)){
+            $faqs = Faqs::where('kategori', 'like', $cate . '%')->orderBy('created_at', 'desc')->paginate(5);
         }
-            return view('faqs', compact('faqs'));
+        if(empty($contains) && empty($cate)){
+            $faqs = Faqs::orderBy('created_at', 'desc')->paginate(5);
+        }
+            return view('faq', compact('faqs'));
     }
 
     public function SearchPegawai(Request $request)
     {
+        $username = $request->input('username');
+        $email = $request->input('email');
 
+        if(!empty($username) && !empty($email)){
+            $user = User::where('username', 'like', $username . '%')->Where('email', 'like', $email . '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if(!empty($username) && empty($email)){
+            $user = User::where('username', 'like', $username . '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if(empty($username) && !empty($email)){
+            $user = User::where('email', 'like', $email . '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if(empty($username) && empty($email)){
+            $user = User::orderBy('created_at', 'desc')->paginate(5);
+        }
+
+        return view('pegawai' , compact('user'));
     }
 }

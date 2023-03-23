@@ -20,14 +20,7 @@
 <body>
     <div class="page-wrapper">
         <div class="content container-fluid">
-
-            @if (Auth::User()->role == 'admin')
                 @include('layout/nav/nav')
-            @else
-                @include('layout/nav/navp')
-            @endif
-
-
         </div>
     </div>
 

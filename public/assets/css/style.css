@@ -2402,7 +2402,7 @@ html.menu-opened body {
     min-width: 70px;
     min-height: 28px;
     line-height: 2;
-    background-color: #148BE3 !important;
+    /* background-color: #148BE3 !important; */
 }
 .inv-logo {
     max-height: 80px;
@@ -2553,6 +2553,15 @@ html.menu-opened body {
     font-weight: 600;
     min-width: 200px;
     padding: 10px 20px;
+}
+.field-icon {
+    position: absolute;
+    top: 55%;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.3);
 }
 .dropdown-action {
     margin-bottom: 5px;

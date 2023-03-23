@@ -19,15 +19,18 @@
         </tr>
     </table>
 
-    <table style=" max-width:60%; margin:0 auto; height: 50px;" width="100%" border="0"
-        align="center" cellpadding="0" cellspacing="0">
+    <table style=" max-width:60%; margin:0 auto; height: 50px;" width="100%" border="0" align="center"
+        cellpadding="0" cellspacing="0">
         <tr>
             <td style="text-align:center;">
                 <img width="130" height="60" src="{{ public_path('images/logoemail.png') }}" alt="logo">
             </td>
             <td style="text-align: center;">
                 <h1 style="color:#1e1e2d; font-weight:300; margin:5px;font-size:24px;font-family:'Rubik',sans-serif;">
-                    Ticketing Disturbance Event Report KSO With Telkom</h1>
+                    Ticketing System Problem Report
+                    <br>
+                    KSO Telkom
+                </h1>
             </td>
             <td>
                 <table border="0"
@@ -42,9 +45,9 @@
                         <td style="width: 90px; text-align: left;">
                             <p
                                 style="font-family:'Rubik',sans-serif; font-size:12px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                                FT-{{ $ticket->id }}-{{ $note->id }}.{{ $note->updated_at->format('m') }}.{{ $note->updated_at->format('y') }}
+                                FT-301.00.02
                             </p>
-                            </td>
+                        </td>
                     </tr>
                     <tr>
                         <td style="width: 90px; ">
@@ -53,10 +56,12 @@
                                 Revisi </p>
                         </td>
                         <td style="text-align: center;">:</td>
-                        <td style="width: 90px; text-align: left;"><p
-                            style="font-family:'Rubik',sans-serif; font-size:12px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                            {{ $ticket->updated_at->format('d / M / Y') }}
-                        </p></td>
+                        <td style="width: 90px; text-align: left;">
+                            <p
+                                style="font-family:'Rubik',sans-serif; font-size:12px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                                01
+                            </p>
+                        </td>
                     </tr>
                     <tr>
                         <td style="width: 90px;">
@@ -81,7 +86,8 @@
             <td style="height:30px;">&nbsp;</td>
         </tr>
     </table>
-    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="80%" border="1" align="center" cellpadding="0" cellspacing="0">
+    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="80%" border="1" align="center"
+        cellpadding="0" cellspacing="0">
         <tr style="background-color: rgb(203, 203, 203);">
             <td style="width: 90px; text-align: center;" colspan="5">
                 <h1 style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200;">
@@ -115,7 +121,7 @@
             </td>
             <td style="width: 60px;" colspan="3">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    {{ $note->lama_penanganan }} </p>
+                    {{ $note->sampai_lokasi }} </p>
             </td>
         </tr>
         <tr>
@@ -186,8 +192,8 @@
             <td style="height:30px;">&nbsp;</td>
         </tr>
     </table>
-    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%"
-        border="1" align="center" cellpadding="0" cellspacing="0">
+    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%" border="1" align="center"
+        cellpadding="0" cellspacing="0">
         <tr style="background-color: rgb(203, 203, 203);">
             <td style="width: 90px; text-align: center;">
                 <h1 style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200;">
@@ -208,8 +214,8 @@
             <td style="height:30px;">&nbsp;</td>
         </tr>
     </table>
-    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%"
-        border="1" align="center" cellpadding="0" cellspacing="0">
+    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%" border="1" align="center"
+        cellpadding="0" cellspacing="0">
         <tr style="background-color: rgb(203, 203, 203);">
             <td style="width: 90px; text-align: center;">
                 <h1 style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200;">
@@ -230,23 +236,22 @@
             <td style="height:30px;">&nbsp;</td>
         </tr>
     </table>
-        <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%"
-            border="1" align="center" cellpadding="0" cellspacing="0">
-            <tr style="background-color: rgb(203, 203, 203);">
-                <td style="width: 90px; text-align: center;">
-                    <h1
-                        style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                        Repair</h1>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 90px; height: 60px;">
-                    <h1
-                        style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
-                        {{ $note->perbaikan }}</h1>
-                </td>
-            </tr>
-        </table>
+    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%" border="1" align="center"
+        cellpadding="0" cellspacing="0">
+        <tr style="background-color: rgb(203, 203, 203);">
+            <td style="width: 90px; text-align: center;">
+                <h1 style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    Repair</h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px; height: 60px;">
+                <h1
+                    style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
+                    {{ $note->perbaikan }}</h1>
+            </td>
+        </tr>
+    </table>
 
     <table cellspacing="0" border="0" cellpadding="0" width="100%"
         style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;">
@@ -254,8 +259,8 @@
             <td style="height:35px;">&nbsp;</td>
         </tr>
     </table>
-    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%"
-        border="0" align="center" cellpadding="0" cellspacing="0">
+    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%" border="0" align="center"
+        cellpadding="0" cellspacing="0">
         <tr>
             <td style="width: 90px;" colspan="2">
                 <h6
