@@ -43,6 +43,7 @@
                                 <option selected>{{ $user->role }}</option>
                                 <option >User</option>
                                 <option >Admin</option>
+                                <option >viewers / audience</option>
                             </select>
                         </div>
                     </div>

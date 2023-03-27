@@ -37,8 +37,12 @@
         <div class="container-login100" style="background-image: url('{{ asset('images/1234.jpeg') }}')">
             <div class="wrap-login100">
                 <div class="login100-form-title" style="background-image: url({{ asset('images/logo1.png') }});">
-
                 </div>
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        <b>Opps!</b> {{ session('error') }}
+                    </div>
+                @endif
                 <form class="login100-form" action="{{ route('proses.register') }}" method="post">
                     @csrf
                     <div class="wrap-input100 validate-input m-b-18">

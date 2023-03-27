@@ -251,7 +251,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="sampai_lokasi" placeholder="Arrived at the location">
+                                        <input type="text" class="form-control" id="usr" name="sampai_lokasi" placeholder="Response time">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -281,7 +281,7 @@ Solusi           : {{ $item->solusi }}
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <input type="text" class="form-control" id="usr" name="lama_penanganan" placeholder="Long Handling">
+                                        <input type="text" class="form-control" id="usr" name="lama_penanganan" placeholder="Handling Time">
                                     </div>
                                 </div>
                                 <div class="col-md-4">

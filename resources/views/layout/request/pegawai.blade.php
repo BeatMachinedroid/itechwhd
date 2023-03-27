@@ -52,7 +52,7 @@
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <th class="text-center">No.</th>
                                     <th>Username</th>
                                     <th>Email</th>
                                     <th>Role</th>
@@ -65,7 +65,7 @@
                             <tbody>
                                 @forelse ($user as $pegawai)
                                 <tr>
-                                    <td>{{ $pegawai->id }}</td>
+                                    <td class="text-center">{{ $pegawai->id }}</td>
                                     <td>{{ $pegawai->username }}</td>
                                     <td>{{ $pegawai->email }}</td>
                                     <td>{{ $pegawai->role }}</td>

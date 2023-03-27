@@ -375,15 +375,7 @@
         document.getElementById("notes").style.display = "none";
       });
 
-    document.getElementById("show-display").addEventListener("click", function() {
-        document.getElementById("display-notes").style.display = "table-row";
-        document.getElementById("display-notes-text").style.display = "none";
-      });
 
-    document.getElementById("show-notes-text").addEventListener("click", function() {
-        document.getElementById("display-notes-text").style.display = "table-row";
-        document.getElementById("display-notes").style.display = "none";
-      });
 
 
 })(jQuery);

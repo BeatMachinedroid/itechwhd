@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('serial');
             $table->string('type');
             $table->string('model');
+            $table->string('area')->nullable();
+            $table->string('status')->default('AVAILABLE');
+            $table->text('file')->nullable();
             $table->string('location');
             $table->timestamps();
         });

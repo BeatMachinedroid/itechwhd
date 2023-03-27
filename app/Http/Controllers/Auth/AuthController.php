@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return redirect('home');
+            return redirect('dashboard');
         }else{
             return view('layout.login');
         }
@@ -39,10 +39,10 @@ class AuthController extends Controller
         ];
 
         if (Auth::Attempt($data)) {
-            return redirect('/home');
+            return redirect()->route('index');
         }else{
             Session::flash('error','email and password is not valid');
-            return redirect('/');
+            return redirect()->route('login');
         }
     }
 
@@ -67,10 +67,9 @@ class AuthController extends Controller
 
 
             if (User::create($data)) {
-                return redirect('/home');
+                return redirect()->route('login');
             }else{
-                Session::flash('error','email and password is not valid');
-                return redirect('/');
+                return redirect()->route('register')->with('error','your email address is already registered');
             }
 
     }

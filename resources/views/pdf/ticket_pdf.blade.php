@@ -101,27 +101,7 @@
             </td>
             <td style="width: 180px; margin-left: 10px;" colspan="3">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    Ticket #{{ $ticket->id }} </p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 90px;" colspan="2">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    Reporter </p>
-            </td>
-            <td style="width: 180px; margin-left: 10px;" colspan="3">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    {{ $ticket->pelapor }} </p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 90px;" colspan="2">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    Response Time </p>
-            </td>
-            <td style="width: 60px;" colspan="3">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    {{ $note->sampai_lokasi }} </p>
+                    {{ $ticket->id }} </p>
             </td>
         </tr>
         <tr>
@@ -148,6 +128,26 @@
         <tr>
             <td style="width: 90px;" colspan="2">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    handling time </p>
+            </td>
+            <td style="width: 60px; " colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $note->lama_penanganan }} </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    Response Time </p>
+            </td>
+            <td style="width: 60px;" colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $note->sampai_lokasi }} </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
                     Condition Level </p>
             </td>
             <td style="width: 180px; margin-left: 10px;" colspan="3">
@@ -168,21 +168,21 @@
         <tr>
             <td style="width: 90px;" colspan="2">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    handling time </p>
-            </td>
-            <td style="width: 60px; " colspan="3">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    {{ $note->lama_penanganan }} </p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 90px;" colspan="2">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
                     Device </p>
             </td>
             <td style="width: 180px; margin-left: 10px;" colspan="3">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
                     {{ $note->perangkat }} </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    Reporter </p>
+            </td>
+            <td style="width: 180px; margin-left: 10px;" colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $ticket->pelapor }} </p>
             </td>
         </tr>
     </table>
@@ -202,9 +202,9 @@
         </tr>
         <tr>
             <td style="width: 90px; height: 60px;">
-                <h1
-                    style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
-                    {{ $note->deskripsi }}</h1>
+                <p
+                    style="font-family:'Rubik',sans-serif; font-size:16px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
+                    {{ $note->deskripsi }}</p>
             </td>
         </tr>
     </table>
@@ -224,9 +224,9 @@
         </tr>
         <tr>
             <td style="width: 90px; height: 60px;">
-                <h1
-                    style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
-                    {{ $note->penyebab }}</h1>
+                <p
+                    style="font-family:'Rubik',sans-serif; font-size:16px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
+                    {{ $note->penyebab }}</p>
             </td>
         </tr>
     </table>
@@ -246,9 +246,9 @@
         </tr>
         <tr>
             <td style="width: 90px; height: 60px;">
-                <h1
-                    style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
-                    {{ $note->perbaikan }}</h1>
+                <p
+                    style="font-family:'Rubik',sans-serif; font-size:16px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
+                    {{ $note->perbaikan }}</p>
             </td>
         </tr>
     </table>
@@ -272,10 +272,10 @@
             <td style="height:30px;">&nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: center; width: 90px;">
+            <td style="text-align: center; width: 50%;">
                 IT ASDP
             </td>
-            <td style="text-align: center; width: 90px;">
+            <td style="text-align: center; width: 50%;">
                 TELKOM
             </td>
         </tr>
@@ -283,10 +283,10 @@
             <td style="height:70px;">&nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: center; width: 90px;">
-                ( __________________ )
+            <td style="text-align: center; width: 50%;">
+                ( {{ $ticket->petugas_teknisi }} )
             </td>
-            <td style="text-align: center; width: 90px;">
+            <td style="text-align: center; width: 50%;">
                 ( __________________ )
             </td>
         </tr>

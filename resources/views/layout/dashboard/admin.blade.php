@@ -77,12 +77,13 @@
         </div>
         <div class="col-xl-3 col-sm-6 col-12">
             <div class="card board1 fill">
-                <a href="{{route('pegawai')}}">
+                @if (Auth::user()->role == 'viewers / audience')
+                <a href="">
                     <div class="card-body">
                         <div class="dash-widget-header">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                    Pegawai</div>
+                                    Account</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-500">{{ $count3 }}</div>
                             </div>
                             <div class="col-auto">
@@ -92,6 +93,23 @@
                         </div>
                     </div>
                 </a>
+                @else
+                <a href="{{route('pegawai')}}">
+                    <div class="card-body">
+                        <div class="dash-widget-header">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    Account</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-500">{{ $count3 }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-user"></i>
+                                <i class="fas fa-user fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                @endif
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="{{ route('aset.add') }}" method="POST">
+            <form action="{{ route('aset.add') }}" method="POST"  enctype="multipart/form-data">
                 <div class="card-body">
                     <h5 class="text-center">
                         <strong>
@@ -52,7 +52,20 @@
                             <textarea class="form-control" rows="5" id="comment" name="serial"></textarea>
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>file</h6>
+                            @error('detail')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <input type="file" class="form-control" id="usr" name="files">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
                         <div class="form-group">
                             <h6>Location</h6>
                             <select class="form-control" id="sel2" name="location">

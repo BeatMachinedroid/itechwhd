@@ -53,14 +53,22 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
+                @if (Auth::user()->role == 'viewers / audience')
                 <div class="card-header">
                     <h4 class="card-title">
-                        I – Ticket History
+                        I – Report History
+                    </h4>
+                </div>
+                @else
+                <div class="card-header">
+                    <h4 class="card-title">
+                        I – Report History
                     </h4>
                     <div class="text-right">
                         <a href="{{ route('cetak_excel') }} " class="btn btn-white">Download Excel</a>
                     </div>
                 </div>
+                @endif
                 @if (session()->has('message'))
                     <div class="alert alert-success">
                         {{ session()->get('message') }}
@@ -84,16 +92,24 @@
                             <tbody>
                                 @forelse ($ticket as $tiket)
                                     <tr>
+                                        @if (Auth::User()->role == 'viewers / audience')
+                                        <td class="text-center">#{{ $tiket->id }}</td>
+
+                                        @else
                                         <td class="text-center"><a href="{{ '/report/' .  encrypt($tiket->id) . '/detail' }}" class="btn-success badge-pill mt-0 col-md-1">#{{ $tiket->id }}</a></td>
+
+                                        @endif
                                                 <td>{{ $tiket->created_at->format('d / m / Y') }}</td>
                                                 <td>{{ $tiket->updated_at->format('d / m / Y')}}</td>
                                                 <td class="text-left">{{ substr($tiket->request_detail, 0 , 25) }}...</td>
                                                 <td class="text-center">
-                                                        @if ($tiket->status == 'open')
-                                                            <span class="badge badge-pill bg-primary inv-badge">{{ $tiket->status }}</span>
-                                                        @else
-                                                            <span class="badge badge-pill bg-danger inv-badge">{{ $tiket->status }}</span>
-                                                        @endif
+                                                    @if ($tiket->status == 'closed')
+                                                    <span class="badge badge-pill bg-warning inv-badge">{{ $tiket->status }}</span>
+                                                    @elseif ($tiket->status == 'cancelled')
+                                                    <span class="badge badge-pill bg-danger inv-badge">{{ $tiket->status }}</span>
+                                                    @else
+                                                    <span class="badge badge-pill bg-primary inv-badge">{{ $tiket->status }}</span>
+                                                    @endif
                                                     {{-- <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span> --}}
                                                 </td>
                                         @if (Auth::User()->role == 'Admin')
@@ -109,7 +125,6 @@
                                                     <a class="dropdown-item" href="{{ '/report/' . encrypt($tiket->id) . '/delete' }}">
                                                         <i class="fas fa-trash-alt m-r-5"></i>
                                                         Delete</a>
-
                                                 </div>
                                             </div>
                                         </td>

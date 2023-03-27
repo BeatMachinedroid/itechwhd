@@ -481,6 +481,17 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Status</h6>
+                            <select class="form-control" id="sel2" name="status">
+                                <option>{{ $assets->status }}</option>
+                                <option>AVAILABLE</option>
+                                <option>UNAVAILABLE</option>
+                                <option>CANCELED</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Submit</button>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\File;
+use App\Models\Ticket;
 
 
 class UploadController extends Controller
@@ -49,5 +50,11 @@ class UploadController extends Controller
         Storage::disk('local')->delete('public/uploads/'.$file['files']);
         $file->delete();
         return back();
+    }
+
+    public function excel()
+    {
+        $ticket = Ticket::all();
+        return view('email.excel', compact('ticket'));
     }
 }

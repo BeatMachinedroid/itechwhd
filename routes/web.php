@@ -32,7 +32,7 @@ Route::get('/', function () {
     return view('layout.login');
 });
 // ============================
-Route::get('/home', [TicketController::class, 'home'])->middleware('auth');
+Route::get('/dasboard', [TicketController::class, 'home'])->name('index')->middleware('auth');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'proses'])->name('proses.login');
 Route::post('/register', [AuthController::class, 'pReg'])->name('proses.register');
@@ -50,6 +50,7 @@ Route::put('/asset/update',[AssetController::class,'update'])->name('aset.update
 Route::post('/asset/add',[AssetController::class,'addasset'])->name('aset.add');
 Route::get('/asset/{id}/delete',[AssetController::Class,'deleteasset']);
 Route::get('/asset/search', [SearchController::class,'SearchAsset'])->name('search.asset');
+Route::put('/asset/status/proses' , [AssetController::class, 'statusup'])->name('statusup');
 // ============================
 Route::get('/faq',[FaqController::class,'view'])->name('faq');
 Route::get('/faq/add',[FaqController::class,'viewadd'])->name('addfaq');
@@ -92,4 +93,4 @@ Route::post('/upload/post',[UploadController::class,'upload'])->name('upload.pos
 Route::get('/upload/download{id}',[UploadController::class, 'download']);
 Route::get('/upload/delete{id}',[UploadController::class, 'delete']);
 // ============================
-
+// Route::get('/upload/table/',[UploadController::class, 'excel'])->name('upload.table');

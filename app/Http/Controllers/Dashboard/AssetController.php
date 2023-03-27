@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Assets;
@@ -45,18 +45,26 @@ class AssetController extends Controller
             'type' => 'required',
             'model' => 'required',
             'location' => 'required',
+            'files' => 'required|mimes:png,jpg,jpeg,png|max:10240',
         ]);
 
-        $data = [
-            'serial' => $request->serial,
-            'type' => $request->type,
-            'model' => $request->model,
-            'location' => $request->location,
-        ];
-
-        if (Assets::create($data)) {
-            return redirect()->route('aset')->with('message','data is saved');
+        if ($request->has('files')) {
+            $file = $request->file('files');
+            $extension = $file->getClientOriginalExtension();
+            $originalName = $file->getClientOriginalName();
+            $file->storeAs('public/Assets/', $originalName);
         }
+
+        $asset = new Assets;
+        $asset->serial = $request->serial;
+        $asset->type = $request->type;
+        $asset->model = $request->model;
+        $asset->location = $request->location;
+        $asset->status = 'AVAILABLE';
+        $asset->file = $originalName;
+        $asset->save();
+
+        return redirect()->route('aset')->with('message','data is saved');
     }
 
     public function viewedit($id)
@@ -72,12 +80,28 @@ class AssetController extends Controller
     public function update(Request $request)
     {
         $asset = Assets::find($request->id);
-        $asset->update([
-            'type' => $request->type,
-            'model' => $request->model,
-            'serial' => $request->serial,
-            'location' => $request->location,
+        $request->validate([
+            'serial' => 'required',
+            'type' => 'required',
+            'model' => 'required',
+            'location' => 'required',
+            'status' => 'required',
         ]);
+
+        // if ($request->has('files')) {
+        //     $file = $request->file('files');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $originalName = $file->getClientOriginalName();
+        //     $file->storeAs('public/Assets/', $originalName);
+        // }
+
+        $asset->serial = $request->serial;
+        $asset->type = $request->type;
+        $asset->model = $request->model;
+        $asset->location = $request->location;
+        $asset->status = $request->status;
+        // $asset->file = $originalName;
+        $asset->save();
 
         return redirect()
         ->route('aset')
@@ -87,7 +111,22 @@ class AssetController extends Controller
     public function deleteasset($id)
     {
         $asset = Assets::find(decrypt($id));
+        Storage::disk('local')->delete('public/Assets/'.$asset['file']);
         $asset->delete();
         return redirect()->route('aset')->with('message','data is deleted');
+    }
+
+    public function statusup(Request $request)
+    {
+        $asset = Assets::find($request->id);
+
+        $asset->location = $request->location;
+        $asset->area = $request->area;
+        $asset->status = 'UNAVAILABLE';
+        $asset->save();
+
+        return redirect()
+        ->back()
+        ->with(['message' => 'Data is updated successfully']);
     }
 }

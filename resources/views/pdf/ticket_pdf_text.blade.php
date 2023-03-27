@@ -27,7 +27,10 @@
             </td>
             <td style="text-align: center;">
                 <h1 style="color:#1e1e2d; font-weight:300; margin:5px;font-size:24px;font-family:'Rubik',sans-serif;">
-                    Ticketing Disturbance Event Report KSO With Telkom</h1>
+                    Ticketing System Problem Report
+                    <br>
+                    KSO Telkom
+                </h1>
             </td>
             <td>
                 <table border="0"
@@ -86,12 +89,15 @@
         <tr style="background-color: rgb(203, 203, 203);">
             <td style="width: 90px; text-align: center;">
                 <h1 style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    Description Of Interference</h1>
+                    Detail Report</h1>
             </td>
         </tr>
         <tr>
-            <td>
-                <textarea id="message" name="message" rows="4">{{ $notes->notes }}</textarea>
+            <td style="width: 90px; height: 300px;">
+                <h1
+                    style="font-family:'Rubik',sans-serif; font-size:24px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
+                    {{ $note->notes }}
+                </h1>
             </td>
         </tr>
     </table>
@@ -115,10 +121,10 @@
             <td style="height:40px;">&nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: center; width: 90px;">
+            <td style="text-align: center; width: 50%;">
                 IT ASDP
             </td>
-            <td style="text-align: center; width: 90px;">
+            <td style="text-align: center; width: 50%;">
                 TELKOM
             </td>
         </tr>
@@ -126,10 +132,10 @@
             <td style="height:70px;">&nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: center; width: 90px;">
-                ( __________________ )
+            <td style="text-align: center; width: 50%;">
+                ( {{ $ticket->petugas_teknisi }} )
             </td>
-            <td style="text-align: center; width: 90px;">
+            <td style="text-align: center; width: 50%;">
                 ( __________________ )
             </td>
         </tr>

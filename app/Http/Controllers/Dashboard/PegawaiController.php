@@ -38,6 +38,7 @@ class PegawaiController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'location' =>$request->location,
+            'role' =>$request->role
         ]);
         return redirect()->route('pegawai')->with('message','Data is updated successfully!');
     }

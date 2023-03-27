@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">
-                        Assets
+                        All Assets
                     </h4>
                 </div>
                 @if (session()->has('message'))
@@ -50,7 +50,10 @@
                                     <th>Asset Type</th>
                                     <th>Model</th>
                                     <th>Location</th>
-                                    @if (Auth::User()->role == 'admin')
+                                    <th>Status</th>
+                                    <th>area</th>
+                                    <th>Image</th>
+                                    @if (Auth::User()->role == 'Admin')
                                     <th style="text-align: center;">action</th>
                                     @endif
                                 </tr>
@@ -58,12 +61,29 @@
                             <tbody>
                                 @forelse ($assets as $aset)
                                     <tr>
+                                        @if (Auth::User()->role == 'viewers / audience')
+                                        <td style="text-align: center;">{{ $aset->id }}</td>
+                                        @else
                                         <td style="text-align: center;"><a href="{{ '/asset/'. encrypt($aset->id) . '/detail' }}" class="btn-success badge-pill mt-0 col-md-1">{{ $aset->id }}</a></td>
+                                        @endif
                                         <td >{{ $aset->serial }}</td>
                                         <td >{{ $aset->type }}</td>
                                         <td >{{ $aset->model }}</td>
                                         <td >{{ $aset->location }}</td>
-                                        @if (Auth::User()->role == 'admin')
+                                        <td>
+                                            @if ($aset->status == 'UNAVAILABLE')
+                                            <span class="badge badge-pill bg-warning inv-badge"> {{ $aset->status }} </span>
+                                            @elseif($aset->status == 'AVAILABLE')
+                                            <span class="badge badge-pill bg-primary inv-badge"> {{ $aset->status }} </span>
+                                            @else
+                                            <span class="badge badge-pill bg-danger inv-badge"> {{ $aset->status }} </span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $aset->area }}</td>
+                                        <td><img src="{{ asset('storage/Assets/' . $aset->file) }}"
+                                            alt=""
+                                            style="width: 120px; height: 120px;"></td>
+                                        @if (Auth::User()->role == 'Admin')
                                         <td style="text-align: center;">
                                             <div class="dropdown dropdown-action">
                                                 <a class="action-icon dropdown-toggle"
@@ -80,6 +100,7 @@
                                             </div>
                                         </td>
                                         @endif
+
                                     </tr>
                                 @empty
                                     <div class="alert alert-danger">
