@@ -172,7 +172,7 @@
             </td>
             <td style="width: 180px; margin-left: 10px;" colspan="3">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    {{ $note->perangkat }} </p>
+                    {{ $note->perangkat }}</p>
             </td>
         </tr>
         <tr>
@@ -284,7 +284,7 @@
         </tr>
         <tr>
             <td style="text-align: center; width: 50%;">
-                ( {{ $ticket->petugas_teknisi }} )
+                ( {{ $ticket->regu }} )
             </td>
             <td style="text-align: center; width: 50%;">
                 ( __________________ )

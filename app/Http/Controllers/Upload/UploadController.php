@@ -12,14 +12,15 @@ class UploadController extends Controller
 {
     public function view()
     {
-        $file = File::paginate(5);
+        $file = File::orderBy('created_at', 'desc')->paginate(5);
         return view('upload',compact('file'));
     }
 
     public function upload(Request $request)
     {
         $request->validate([
-            'files' => 'required|mimes:png,jpg,pdf,jpeg,png,doc,docx,xlsx,xls,txt|max:10240'
+            'files' => 'required|mimes:png,jpg,pdf,jpeg,png,doc,docx,xlsx,xls,txt|max:10240',
+            'deskripsi' => 'required',
         ]);
 
         if ($request->has('files')) {
@@ -31,6 +32,7 @@ class UploadController extends Controller
 
         $files = new File;
         $files->users = $request->users;
+        $files->deskripsi = $request->deskripsi;
         $files->files = $originalName;
         $files->save();
 

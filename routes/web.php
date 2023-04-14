@@ -88,9 +88,11 @@ Route::get('/ticket/pdf{id}',[PdfController::class,'cetak_pdf']);
 Route::get('/assets/pdf{id}',[PdfController::class,'cetak_asset_pdf']);
 Route::get('/ticket/pdf/text{id}',[PdfController::class,'cetak_pdf_text']);
 Route::get('/ticket/exel',[ExcelController::class,'cetak_excel'])->name('cetak_excel');
+Route::get('/ticket/exel/asset',[ExcelController::class,'cetak_excel_aset'])->name('asset_excel');
 Route::get('/upload',[UploadController::class,'view'])->name('upload_view');
 Route::post('/upload/post',[UploadController::class,'upload'])->name('upload.post');
 Route::get('/upload/download{id}',[UploadController::class, 'download']);
 Route::get('/upload/delete{id}',[UploadController::class, 'delete']);
+Route::get('/upload/search/',[SearchController::class,'SearchUpload'])->name('search.upload');
 // ============================
 // Route::get('/upload/table/',[UploadController::class, 'excel'])->name('upload.table');

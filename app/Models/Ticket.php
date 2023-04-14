@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Ticket extends Model
 {
@@ -22,7 +23,25 @@ class Ticket extends Model
             'pelapor',
             'location',
             'status',
+            'device',
+            'image',
     ];
+
+    // public $timestamps = false;
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+    //     static::creating(function ($ticket){
+    //         $ticket->created_at = Carbon::now();
+    //         $ticket->updated_at = Carbon::now();
+    //     });
+
+    //     static::updating(function ($ticket)
+    //     {
+    //         $ticket->update_at = Carbon::now();
+    //     });
+    // }
 
     public function requesttype()
     {

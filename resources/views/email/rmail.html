@@ -13,59 +13,215 @@
 <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
     <!--100% body table-->
     <table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f2f3f8"
-        style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;">
+        style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif; text-align:center;">
         <tr>
             <td>
                 <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="0"
                     align="center" cellpadding="0" cellspacing="0">
                     <tr>
-
-                    </tr>
-                    <tr>
                         <td style="height:80px;">&nbsp;</td>
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                            <img width="130" height="60" src="{{ public_path('images/logoemail.png') }}" alt="logo" style="text-align: center;">
-
+                            <img width="130" height="60" src="{{ $message->embed(public_path().'/images/logoemail.png') }}" alt="logo">
                         </td>
                     </tr>
                     <tr>
                         <td style="height:20px;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>
                             <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
                                 style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
-                                <tr>
-                                    <td style="height:40px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:0 35px;">
-                                        @if (session()->has('message'))
-                                        <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">
-                                                    {{ session()->get('message') }}
-                                        </h1>
-                                        @endif
-                                        <span
-                                            style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
-                                        <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
-                                            this notification for add data form iTech app
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="height:40px;">&nbsp;</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th style="padding: 10px; background: #b6b6b6; text-align: left;"><strong>Client</strong></th>
+                                    </tr>
+                                </thead>
                             </table>
-                        </td>
+                    </tr>
+                    <tr>
+
+                            <table width="95%" border="0" align="center" cellpadding="0" cellspacing="15"
+                                style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Name :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{ Auth::user()->username }} <{{ Auth::user()->email }}></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Location :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{ Auth::user()->location }}</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </tr>
+                    <tr>
+                        <td style="height:10px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+
+                            <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
+                                style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                                <thead>
+                                    <tr>
+                                        <th style="padding: 10px; background: #b6b6b6; text-align: left;"><strong>Report Info</strong></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                    </tr>
+                    <tr>
+                            <table width="95%" border="0" align="center" cellpadding="0" cellspacing="15"
+                                style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Report No. :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{ $data->id }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Report Date :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Status :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Location :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Request Type :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Subject :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Area / Location :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Technician :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Reporter :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Division :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: right;">
+                                            <strong>Group IT :</strong>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            {{  }}</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </tr>
                     <tr>
                         <td style="height:20px;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="text-align:center;">
-                            <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>2023 iTech - PT. ASDP Indonesia Ferry</strong></p>
-                        </td>
+                        <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
+                        style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                        <thead>
+                            <tr>
+                                <th style="padding: 10px; background: #b6b6b6; text-align: left;"><strong>Client</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="{{ asset('storage/Report/' . $ticket->image) }}" alt=""
+                                    style="width: 250px; height: 250px;"></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </tr>
+                    <tr>
+                        <td style="height:20px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"
+                                    style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                                    <tr>
+                                        <td>
+                                            <p style="color:#455056;">
+                                                this notification for edited request Report data form iTech app
+                                            </p>
+                                            <span
+                                                style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;">
+                                                <a href="{{ url('/') }}">Here Show</a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                        </table>
+                    </tr>
+                    <tr>
+                        <td style="height:40px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <table width="100%" border="0" align="center" cellpadding="10" cellspacing="0"
+                                    style="max-width:670px; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                                    <tr>
+                                        <td>
+                                            <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>2023 iTech - PT. ASDP Indonesia Ferry</strong></p>
+                                        </td>
+                                    </tr>
+                        </table>
                     </tr>
                     <tr>
                         <td style="height:80px;">&nbsp;</td>

@@ -82,7 +82,8 @@
                                     <th class="text-center">No.</th>
                                     <th style="width: 150px">Date</th>
                                     <th style="width: 150px">Update</th>
-                                    <th class="text-left">Request Detail</th>
+                                    <th class="text-left">Subject Report</th>
+                                    <th class="text-left">Report Detail</th>
                                     <th class="text-center">Status</th>
                                     @if (Auth::User()->role == 'Admin')
                                     <th class="text-center">Action</th>
@@ -101,7 +102,8 @@
                                         @endif
                                                 <td>{{ $tiket->created_at->format('d / m / Y') }}</td>
                                                 <td>{{ $tiket->updated_at->format('d / m / Y')}}</td>
-                                                <td class="text-left">{{ substr($tiket->request_detail, 0 , 25) }}...</td>
+                                                <td class="text-left">{{ $tiket->subject }}</td>
+                                                <td class="text-left">{{ substr($tiket->request_detail, 0 , 15) }}</td>
                                                 <td class="text-center">
                                                     @if ($tiket->status == 'closed')
                                                     <span class="badge badge-pill bg-warning inv-badge">{{ $tiket->status }}</span>

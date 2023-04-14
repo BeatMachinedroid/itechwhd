@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('problem');
             $table->string('pelapor');
             $table->string('location');
+            $table->string('image')->nullable();
             $table->string('status')->default('open');
             $table->timestamps();
         });

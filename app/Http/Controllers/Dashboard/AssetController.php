@@ -45,7 +45,8 @@ class AssetController extends Controller
             'type' => 'required',
             'model' => 'required',
             'location' => 'required',
-            'files' => 'required|mimes:png,jpg,jpeg,png|max:10240',
+            'jumlah' => 'required',
+            'files' => 'required|mimes:png,jpg,jpeg,png,jfif|max:10240',
         ]);
 
         if ($request->has('files')) {
@@ -60,7 +61,9 @@ class AssetController extends Controller
         $asset->type = $request->type;
         $asset->model = $request->model;
         $asset->location = $request->location;
-        $asset->status = 'AVAILABLE';
+        $asset->status = $request->status;
+        $asset->area = $request->area;
+        $asset->jumlah = $request->jumlah;
         $asset->file = $originalName;
         $asset->save();
 
@@ -86,6 +89,8 @@ class AssetController extends Controller
             'model' => 'required',
             'location' => 'required',
             'status' => 'required',
+            'jumlah' => 'required',
+            'area' => 'required',
         ]);
 
         // if ($request->has('files')) {
@@ -100,6 +105,8 @@ class AssetController extends Controller
         $asset->model = $request->model;
         $asset->location = $request->location;
         $asset->status = $request->status;
+        $asset->area = $request->area;
+        $asset->jumlah = $request->jumlah;
         // $asset->file = $originalName;
         $asset->save();
 

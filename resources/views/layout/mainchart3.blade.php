@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>ITECH Help Desk</title>
+    <meta http-equiv="refresh" content="10" />
     <link rel="shortcut icon" type="image/x-icon" href="images/logo_itech.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
@@ -62,6 +63,12 @@ xkey: 'y',
 ykeys: ['a'],
 labels: ['total'],
 barColors: ["#148BE3"],
+hideHover: 'auto',
+        xLabelAngle: '60',
+        gridTextSize: 12,
+        gridTextColor: '#000',
+        verticalGrid: true,
+        padding: 20,
 resize: true,
 redraw: true,
 });

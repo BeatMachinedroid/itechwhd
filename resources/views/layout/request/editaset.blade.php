@@ -492,10 +492,22 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Area</h6>
+                            <input class="form-control" rows="5" id="comment" name="area" value="{{ $assets->area }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>jumlah</h6>
+                            <input type="text" class="form-control" id="usr" name="jumlah" value="{{ $assets->jumlah }}">
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Back</a>
                         </div>
                     </div>
                 </div>

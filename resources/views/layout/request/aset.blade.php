@@ -17,6 +17,16 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
+                            <select class="form-control" name="status">
+                                <option value="">Status</option>
+                                <option value="UNAVAILABLE">UNAVAILABLE</option>
+                                <option value="AVAILABLE">AVAILABLE</option>
+                                <option value="CANCEL">CANCEL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
                             <button type="submit" class="btn btn-success btn-block mt-0">
                                 Search
                             </button>
@@ -34,6 +44,9 @@
                     <h4 class="card-title">
                         All Assets
                     </h4>
+                    <div class="text-right">
+                        <a href="{{ route('asset_excel') }} " class="btn btn-white">Download Excel</a>
+                    </div>
                 </div>
                 @if (session()->has('message'))
                 <div class="alert alert-success">
@@ -51,6 +64,7 @@
                                     <th>Model</th>
                                     <th>Location</th>
                                     <th>Status</th>
+                                    <th>jumlah</th>
                                     <th>area</th>
                                     <th>Image</th>
                                     @if (Auth::User()->role == 'Admin')
@@ -79,6 +93,7 @@
                                             <span class="badge badge-pill bg-danger inv-badge"> {{ $aset->status }} </span>
                                             @endif
                                         </td>
+                                        <td>{{ $aset->jumlah }}</td>
                                         <td>{{ $aset->area }}</td>
                                         <td><img src="{{ asset('storage/Assets/' . $aset->file) }}"
                                             alt=""

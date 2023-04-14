@@ -366,15 +366,10 @@
 
     document.getElementById("show-form").addEventListener("click", function() {
         document.getElementById("notes").style.display = "flex";
+        document.getElementById("btn").disabled = false ;
         document.getElementById("notes-text").style.display = "none";
 
       });
-
-    document.getElementById("show-form-text").addEventListener("click", function() {
-        document.getElementById("notes-text").style.display = "flex";
-        document.getElementById("notes").style.display = "none";
-      });
-
 
 
 

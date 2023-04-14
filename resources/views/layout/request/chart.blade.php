@@ -6,9 +6,9 @@
         <div class="col-md-12 col-lg-12">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h4 class="card-title">Area Loket</h4> </div>
+                    <h4 class="card-title">Yearly Chart</h4> </div>
                 <div class="card-body">
-                    <div id="bar-chart"></div>
+                    <div id="bar-chart" style="height: 400px; width: 100%; padding-bottom: 40px;"></div>
                 </div>
             </div>
         </div>

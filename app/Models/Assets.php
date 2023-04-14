@@ -17,5 +17,6 @@ class Assets extends Model
         'status',
         'area',
         'file',
+        'jumlah',
     ];
 }

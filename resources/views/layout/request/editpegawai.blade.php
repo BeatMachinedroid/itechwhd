@@ -474,8 +474,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Back</a>
                         </div>
                     </div>
                 </div>

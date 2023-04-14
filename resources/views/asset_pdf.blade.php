@@ -27,9 +27,7 @@
             </td>
             <td style="text-align: center;">
                 <h1 style="color:#1e1e2d; font-weight:300; margin:5px;font-size:24px;font-family:'Rubik',sans-serif;">
-                    Ticketing System Problem Report
-                    <br>
-                    KSO Telkom</h1>
+                    Asset Reporting System</h1>
             </td>
             <td>
                 <table border="0"
@@ -94,16 +92,6 @@
         <tr>
             <td style="width: 90px;" colspan="2">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    Serial </p>
-            </td>
-            <td style="width: 180px; margin-left: 10px;" colspan="3">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    #{{ $asset->serial }}</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 90px;" colspan="2">
-                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
                     Type </p>
             </td>
             <td style="width: 180px; margin-left: 10px;" colspan="3">
@@ -124,11 +112,51 @@
         <tr>
             <td style="width: 90px;" colspan="2">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    Model </p>
+                    Serial </p>
             </td>
             <td style="width: 180px; margin-left: 10px;" colspan="3">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
-                    {{ $asset->model }}</p>
+                    #{{ $asset->serial }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    Jumlah </p>
+            </td>
+            <td style="width: 180px; margin-left: 10px;" colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $asset->jumlah }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    Area </p>
+            </td>
+            <td style="width: 180px; margin-left: 10px;" colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $asset->area }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    Location </p>
+            </td>
+            <td style="width: 180px; margin-left: 10px;" colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $asset->location }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    Status </p>
+            </td>
+            <td style="width: 180px; margin-left: 10px;" colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $asset->status }}</p>
             </td>
         </tr>
     </table>

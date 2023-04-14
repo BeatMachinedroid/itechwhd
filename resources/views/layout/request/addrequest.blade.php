@@ -8,7 +8,7 @@
     </div>
     <div class="row ">
         <div class="col-lg-12 addreq">
-            <form action="{{ route('addrequest.post') }}" method="post">
+            <form action="{{ route('addrequest.post') }}" method="post" enctype="multipart/form-data">
 
                 <div class="card-body">
                     <h5 class="text-center">
@@ -563,6 +563,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
+                            {{-- <h6>Division</h6> --}}
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
                             {{-- <h6>Carbon cc</h6> --}}
                             @error('cc')
                                 <div class="alert alert-danger mt-2">
@@ -582,8 +588,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Back</a>
                         </div>
                     </div>
                 </div>

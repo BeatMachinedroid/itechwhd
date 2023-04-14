@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('area')->nullable();
             $table->string('status')->default('AVAILABLE');
+            $table->string('jumlah');
             $table->text('file')->nullable();
             $table->string('location');
             $table->timestamps();

@@ -8,6 +8,7 @@ use App\Models\Ticket;
 use App\Models\Assets;
 use App\Models\Faqs;
 use App\Models\User;
+use App\Models\File;
 
 class SearchController extends Controller
 {
@@ -49,16 +50,19 @@ class SearchController extends Controller
     {
         $contains = $request->input('contains');
 
-        if($request->contains !== null){
-            $assets = Assets::where('serial','like', $request->contains . '%')->orderBy('created_at', 'desc')->paginate(5);
+        // if($request->contains !== null && $request->status == null){
+        //     $assets = Assets::where('serial','like', $request->contains . '%')->orderBy('created_at', 'desc')->paginate(5);
+        // }
+        // if($request->contains !== null && $request->status == null){
+        //     $assets = Assets::where('model','like', $request->contains. '%')->orderBy('created_at', 'desc')->paginate(5);
+        // }
+        if($request->contains !== null && $request->status == null){
+            $assets = Assets::where('type','like', $request->contains. '%')->orWhere('model','like', $request->contains. '%')->orWhere('serial','like', $request->contains. '%')->orderBy('created_at', 'desc')->paginate(5);
         }
-        if($request->contains !== null){
-            $assets = Assets::where('model','like', $request->contains. '%')->orderBy('created_at', 'desc')->paginate(5);
+        if($request->contains == null && $request->status !== null){
+            $assets = Assets::where('status','like', $request->status. '%')->orderBy('created_at', 'desc')->paginate(5);
         }
-        if($request->contains !== null){
-            $assets = Assets::where('type','like', $request->contains. '%')->orderBy('created_at', 'desc')->paginate(5);
-        }
-        if($request->contains == null){
+        if($request->contains == null && $request->status == null){
             $assets = Assets::orderBy('created_at', 'desc')->paginate(5);
         }
 
@@ -105,5 +109,17 @@ class SearchController extends Controller
         }
 
         return view('pegawai' , compact('user'));
+    }
+
+    public function SearchUpload(Request $request)
+    {
+        $contains = $request->input('contains');
+        if(!empty($contains)){
+            $file = File::where('files', 'like', $contains . '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        if(empty($contains)){
+            $file = File::orderBy('created_at', 'desc')->paginate(5);
+        }
+        return view('upload' , compact('file'));
     }
 }

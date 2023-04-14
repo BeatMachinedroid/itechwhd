@@ -27,6 +27,7 @@
                                 <option >Orion.VIM.VCenters</option>
                                 <option >PRINTER</option>
                                 <option >VOIP</option>
+                                <option >Gate</option>
                             </select>
                         </div>
                     </div>
@@ -61,6 +62,12 @@
                                 </div>
                             @enderror
                             <input type="file" class="form-control" id="usr" name="files">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>jumlah</h6>
+                            <input type="text" class="form-control" id="usr" name="jumlah">
                         </div>
                     </div>
 
@@ -490,10 +497,31 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Status</h6>
+                            <select class="form-control" id="sel2" name="status">
+                                <option value="">Status</option>
+                                <option>UNAVAILABLE</option>
+                                <option>AVAILABLE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Area</h6>
+                            @error('area')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <input class="form-control" rows="5" id="comment" name="area">
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-danger">Back</a>
                         </div>
                     </div>
                 </div>
