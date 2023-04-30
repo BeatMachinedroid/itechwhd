@@ -65,7 +65,7 @@
         barColors: ["#148BE3", "#FB7110"],
         hideHover: 'auto',
         xLabelAngle: '60',
-        gridTextSize: 12,
+        gridTextSize: 10,
         gridTextColor: '#000',
         verticalGrid: true,
         padding: 20,

@@ -518,6 +518,37 @@
                             <input class="form-control" rows="5" id="comment" name="area">
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Reporter</h6>
+                            <input class="form-control" rows="5" id="comment" name="reporter">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Head of Warehouse</h6>
+                            <input class="form-control" rows="5" id="comment" name="gudang">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h6>Carbon cc</h6>
+                            @error('cc')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input" name="checkbox">
+                                  </div>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Text input with checkbox" name="cc">
+                              </div>
+                                {{-- <input type="checkbox" name="check-box"> <span><input type="text" class="form-control" id="usr" name="cc" placeholder="Carbon Copy"></span> --}}
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Save</button>

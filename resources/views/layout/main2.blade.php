@@ -42,14 +42,13 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
 <script>
-        var colors = [];
+ var colors = [];
         while (colors.length < 100) {
             do {
                 var color = Math.floor((Math.random()*1000000)+1);
             } while (colors.indexOf(color) >= 0);
             colors.push("#" + ("000000" + color.toString(16)).slice(-6));
         }
-
     Morris.Donut({
         element: 'donut-chart',
         data: [
@@ -69,7 +68,7 @@
         return data.value + '%';
         },
         labelColor: "#FB7110",
-        colors: console.log(colors),
+        colors: colors,
         resize: true,
         redraw: true,
     });
@@ -92,15 +91,15 @@
         xkey: ['y'],
         ykeys: ['a'],
         labels: ['Total'],
-        barColors: console.log(colors),
+        barColors: colors,
         resize: true,
         redraw: true,
         hideHover: 'auto',
-        xLabelAngle: '60',
+        xLabelAngle: '70',
         gridTextSize: 12,
-        gridTextColor: '#000',
+        gridTextColor: 'black',
         verticalGrid: true,
-        padding: 20,
+        padding: 60,
     });
 
 </script>

@@ -92,6 +92,16 @@
         <tr>
             <td style="width: 90px;" colspan="2">
                 <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    No. Assets </p>
+            </td>
+            <td style="width: 180px; margin-left: 10px;" colspan="3">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
+                    {{ $asset->id }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <p style="font-family:'Rubik',sans-serif; font-size:15px; margin: 2px 2px 2px 3px; font-weight: 200;">
                     Type </p>
             </td>
             <td style="width: 180px; margin-left: 10px;" colspan="3">
@@ -163,6 +173,42 @@
 
     <table cellspacing="0" border="0" cellpadding="0" width="100%"
         style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;">
+        <tr>
+            <td style="height:190px;">&nbsp;</td>
+        </tr>
+    </table>
+
+    <table style=" max-width:768px; width: 680px; margin:0 auto;" width="100%" border="0" align="center"
+        cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="width: 90px;" colspan="2">
+                <h6
+                    style="font-family:'Rubik',sans-serif; font-size:20px; margin: 2px 2px 2px 3px; font-weight: 200; text-align: center;">
+                    Agreed By, </h6>
+            </td>
+        </tr>
+        <tr>
+            <td style="height:50px;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; width: 50%;">
+                Reporter
+            </td>
+            <td style="text-align: center; width: 50%;">
+                Head Of Warehouse
+            </td>
+        </tr>
+        <tr>
+            <td style="height:75px;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; width: 50%;">
+                ( {{ $asset->reporter }} )
+            </td>
+            <td style="text-align: center; width: 50%;">
+                ( {{ $asset->gudang }} )
+            </td>
+        </tr>
         <tr>
             <td style="height:40px;">&nbsp;</td>
         </tr>

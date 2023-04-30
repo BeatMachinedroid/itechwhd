@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Assets;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class AssetController extends Controller
 {
@@ -46,27 +48,59 @@ class AssetController extends Controller
             'model' => 'required',
             'location' => 'required',
             'jumlah' => 'required',
+            'gudang' => 'required',
+            'reporter' => 'required',
             'files' => 'required|mimes:png,jpg,jpeg,png,jfif|max:10240',
         ]);
 
-        if ($request->has('files')) {
-            $file = $request->file('files');
-            $extension = $file->getClientOriginalExtension();
-            $originalName = $file->getClientOriginalName();
-            $file->storeAs('public/Assets/', $originalName);
+        if ($request->input('checkbox') && $request->cc !== null ) {
+            if ($request->has('files')) {
+                $file = $request->file('files');
+                $extension = $file->getClientOriginalExtension();
+                $originalName = $file->getClientOriginalName();
+                $file->storeAs('public/Assets/', $originalName);
+            }
+
+            $asset = new Assets;
+            $asset->serial = $request->serial;
+            $asset->type = $request->type;
+            $asset->model = $request->model;
+            $asset->location = $request->location;
+            $asset->status = $request->status;
+            $asset->area = $request->area;
+            $asset->jumlah = $request->jumlah;
+            $asset->gudang = $request->gudang;
+            $asset->reporter = $request->reporter;
+            $asset->file = $originalName;
+            $asset->save();
+
+            $asset = Assets::Where('created_at', Carbon::now())->first();
+
+                    Mail::send('email.emailasetadd', ['asset' => $asset], function($message) use ($request, $asset) {
+                    $message->to($request->cc);
+                    $message->subject('Request Report');
+            });
+        }else{
+            if ($request->has('files')) {
+                $file = $request->file('files');
+                $extension = $file->getClientOriginalExtension();
+                $originalName = $file->getClientOriginalName();
+                $file->storeAs('public/Assets/', $originalName);
+            }
+
+            $asset = new Assets;
+            $asset->serial = $request->serial;
+            $asset->type = $request->type;
+            $asset->model = $request->model;
+            $asset->location = $request->location;
+            $asset->status = $request->status;
+            $asset->area = $request->area;
+            $asset->jumlah = $request->jumlah;
+            $asset->file = $originalName;
+            $asset->gudang = $request->gudang;
+            $asset->reporter = $request->reporter;
+            $asset->save();
         }
-
-        $asset = new Assets;
-        $asset->serial = $request->serial;
-        $asset->type = $request->type;
-        $asset->model = $request->model;
-        $asset->location = $request->location;
-        $asset->status = $request->status;
-        $asset->area = $request->area;
-        $asset->jumlah = $request->jumlah;
-        $asset->file = $originalName;
-        $asset->save();
-
         return redirect()->route('aset')->with('message','data is saved');
     }
 
@@ -91,6 +125,8 @@ class AssetController extends Controller
             'status' => 'required',
             'jumlah' => 'required',
             'area' => 'required',
+            'gudang' => 'required',
+            'reporter' => 'required',
         ]);
 
         // if ($request->has('files')) {
@@ -107,6 +143,8 @@ class AssetController extends Controller
         $asset->status = $request->status;
         $asset->area = $request->area;
         $asset->jumlah = $request->jumlah;
+        $asset->gudang = $request->gudang;
+        $asset->reporter = $request->reporter;
         // $asset->file = $originalName;
         $asset->save();
 

@@ -76,6 +76,20 @@
                                 </tr>
                                 <tr>
                                     <td width='150'>
+                                        <strong>Reporter</strong>
+                                    </td>
+                                    <td><strong>:</strong></td>
+                                    <td>{{ $asset->reporter }}</td>
+                                </tr>
+                                <tr>
+                                    <td width='190'>
+                                        <strong>Head of Warehouse</strong>
+                                    </td>
+                                    <td><strong>:</strong></td>
+                                    <td>{{ $asset->gudang }}</td>
+                                </tr>
+                                <tr>
+                                    <td width='150'>
                                         <strong>Created At</strong>
                                     </td>
                                     <td><strong>:</strong></td>

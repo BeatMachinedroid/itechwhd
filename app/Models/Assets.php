@@ -18,5 +18,7 @@ class Assets extends Model
         'area',
         'file',
         'jumlah',
+        'reporter',
+        'gudang',
     ];
 }

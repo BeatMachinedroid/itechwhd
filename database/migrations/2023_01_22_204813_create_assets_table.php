@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('jumlah');
             $table->text('file')->nullable();
             $table->string('location');
+            $table->string('gudang');
+            $table->string('reporter');
             $table->timestamps();
         });
     }
