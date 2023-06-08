@@ -23,7 +23,7 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                            <img width="130" height="60" src="{{ $message->embed(public_path().'/images/logoemail.png') }}" alt="logo">
+                            <img width="130" height="60" src="{{ $message->embed(public_path().'/images/logoemailnew.png') }}" alt="logo">
                         </td>
                     </tr>
                     <tr>

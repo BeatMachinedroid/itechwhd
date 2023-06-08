@@ -23,7 +23,7 @@
         cellpadding="0" cellspacing="0">
         <tr>
             <td style="text-align:center;">
-                <img width="130" height="60" src="{{ public_path('images/logoemail.png') }}" alt="logo">
+                <img width="130" height="60" src="{{ public_path('/images/logoemailnew.png') }}" alt="logo">
             </td>
             <td style="text-align: center;">
                 <h1 style="color:#1e1e2d; font-weight:300; margin:5px;font-size:24px;font-family:'Rubik',sans-serif;">

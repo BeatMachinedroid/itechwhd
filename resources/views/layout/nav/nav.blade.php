@@ -96,7 +96,7 @@
         <div class="header-left">
             <a href="{{ route('index') }}" class="logo">
                 {{-- <span class="logoclass">ITECH</span> --}}
-                <img src="{{ asset('images/logo1.png') }}" width="60" height="70" alt="logo">
+                <img src="{{ asset('assets/img/ITECH_NEW-removebg-preview.png') }}" width="60" height="70" alt="logo">
             </a>
             </div>
         <a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>

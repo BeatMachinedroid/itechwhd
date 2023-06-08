@@ -5,7 +5,7 @@
     <title>ITECH Help Desk | login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo_itech.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/logo1.png') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <!--===============================================================================================-->
     <!--===============================================================================================-->
@@ -36,7 +36,7 @@
     <div class="limiter">
         <div class="container-login100" style="background-image: url('{{ asset('images/1234.jpeg') }}')">
             <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url({{ asset('images/logo1.png') }});">
+                <div class="login100-form-title" style="background-image: url({{ asset('assets/img/ITECH_NEW-removebg-preview.png') }});">
                 </div>
                 @if (session('error'))
                     <div class="alert alert-danger">
@@ -102,7 +102,7 @@
                     </div>
                    <div class="flex-sb-m w-full p-b-30">
                         <div>
-                            <a href="{{ route('login') }}" class="txt1">
+                            <a href="/" class="txt1">
                                 i have account
                             </a>
                         </div>

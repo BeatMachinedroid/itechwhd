@@ -335,7 +335,7 @@ table.table td h2 span {
 }
 .bg-primary,
 .badge-primary {
-    background-color: #2962ff !important;
+    background-color: #000080 !important;
 }
 a.bg-primary:focus,
 a.bg-primary:hover,
@@ -365,13 +365,15 @@ button.bg-info:hover {
 }
 .bg-warning,
 .badge-warning {
-    background-color: #FB7110 !important;
+    background-color: yellow !important;
+    color: #000 !important;
 }
 a.bg-warning:focus,
 a.bg-warning:hover,
 button.bg-warning:focus,
 button.bg-warning:hover {
-    background-color: #e9ab2e !important;
+    background-color: yellow !important;
+    color: #000 !important;
 }
 .bg-danger,
 .badge-danger {
@@ -471,17 +473,17 @@ button.bg-danger:hover {
     box-shadow: unset;
 }
 .btn-success {
-    background-color: #148BE3;
-    border-color: #FB7110;
+    background-color: #000080;
+    border-color: #68f3f8;
 }
 .btn-success:hover,
 .btn-success:focus,
 .btn-success.active,
 .btn-success:active,
 .open > .dropdown-toggle.btn-success {
-    background-color: #FB7110;
-    border: 1px solid #148BE3;
-    color: #fff;
+    background-color: #68f3f8;
+    border: 1px solid #000080;
+    color: #000;
 }
 .btn-success.active.focus,
 .btn-success.active:focus,
@@ -867,7 +869,7 @@ button.bg-danger:hover {
 
 .row > div > div > a:hover {
     color: #fff !important;
-    background-color: #148BE3;
+    background-color: #68f3f8;
 }
 
 .card-header {
@@ -894,9 +896,9 @@ button.bg-danger:hover {
     text-align: center;
 }
 .btn-light {
-    border-color: #148BE3;
+    border-color: #68f3f8;
     color: #fff;
-    background-color: #148BE3;
+    background-color: #68f3f8;
 }
 .bootstrap-datetimepicker-widget table td.active,
 .bootstrap-datetimepicker-widget table td.active:hover {
@@ -920,7 +922,7 @@ button.bg-danger:hover {
 }
 .bg-warning-light {
     background-color: rgba(255, 152, 0, 0.12) !important;
-    color: #f39c12 !important;
+    color: yellow !important;
 }
 .bg-success-light {
     background-color: rgba(15, 183, 107, 0.12) !important;
@@ -1041,8 +1043,8 @@ button.bg-danger:hover {
 .nav-tabs.nav-tabs-solid > li > a.active,
 .nav-tabs.nav-tabs-solid > li > a.active:hover,
 .nav-tabs.nav-tabs-solid > li > a.active:focus {
-    background-color: #148BE3;
-    border-color: #148BE3;
+    background-color: #68f3f8;
+    border-color: #68f3f8;
     color: #fff;
 }
 .nav-tabs.nav-tabs-solid.nav-tabs-rounded {
@@ -1369,8 +1371,8 @@ button.bg-danger:hover {
     position: relative;
 }
 .roles-menu > ul > li.active > a {
-    border-color: #148BE3;
-    color: #148BE3;
+    border-color: #68f3f8;
+    color: #68f3f8;
 }
 .header {
     left: 0;
@@ -1484,11 +1486,11 @@ button.bg-danger:hover {
     padding: 10px 15px;
 }
 .user-menu .dropdown-menu .dropdown-item:hover {
-    color: #148BE3;
+    color: #68f3f8;
 }
 .header .dropdown-menu > li > a:focus,
 .header .dropdown-menu > li > a:hover {
-    background-color: #148BE3;
+    background-color: #68f3f8;
     color: #fff;
 }
 .header .dropdown-menu > li > a:focus i,
@@ -1499,13 +1501,13 @@ button.bg-danger:hover {
     padding: 10px 18px;
 }
 .header .dropdown-menu > li > a i {
-    color: #148BE3;
+    color: #68f3f8;
     margin-right: 10px;
     text-align: center;
     width: 18px;
 }
 .header .user-menu .dropdown-menu > li > a i {
-    color: #148BE3;
+    color: #68f3f8;
     font-size: 16px;
     margin-right: 10px;
     min-width: 18px;
@@ -1613,8 +1615,8 @@ html.menu-opened body {
     width: 230px;
 }
 .top-nav-search .form-control {
-    background-color: #148BE3;
-    border-color: #148BE3;
+    background-color: #68f3f8;
+    border-color: #68f3f8;
     border-radius: 50px;
     color: #fff;
     height: 40px;
@@ -1700,27 +1702,27 @@ html.menu-opened body {
 
 .menu > a {
     color: #fff !important;
-    background-color: #FB7110;
+    background-color: #000080;
 }
 
 /* sidebar-1 */
 .sidebar-menu li a:hover {
-    color: #148BE3;
+    color: #000080;
 }
 .sidebar-menu > ul > li > a:hover {
     color: #fff !important;
-    background-color: #FB7110;
+    background-color: #000080;
 }
 .sidebar-menu > ul > li.active > a:hover {
-    border-color: #FB7110;
+    border-color: #000080;
     color: #fff;
 }
 .sidebar-menu li.active a {
     border-radius: 8px;
-    color: #fff !important;
+    color: #000 !important;
     box-shadow: 0 7px 12px 0 rgba(95, 118, 232, 0.21);
     opacity: 1;
-    background: #148BE3;
+    background: #68f3f8;
 }
 .menu-title {
     color: #000;
@@ -1754,7 +1756,7 @@ html.menu-opened body {
     position: relative;
 }
 .sidebar-menu ul ul a.active {
-    color: #148BE3;
+    color: #68f3f8;
     text-decoration: none;
 }
 .sidebar-menu ul ul a:before {
@@ -1770,7 +1772,7 @@ html.menu-opened body {
     border-radius: 50px;
 }
 .sidebar-menu ul ul a.active:before {
-    border-color: #148BE3;
+    border-color: #68f3f8;
 }
 .mobile_btn {
     display: none;
@@ -1957,11 +1959,11 @@ html.menu-opened body {
     padding: 10px;
 }
 .ellipse_color {
-    color: #148BE3;
+    color: #68f3f8;
 }
 .login-wrapper .loginbox .login-left {
     align-items: center;
-    background: #148BE3;
+    background: #68f3f8;
     background: -moz-linear-gradient(
         -45deg,
         rgba(0, 150, 136, 1) 0%,
@@ -2149,7 +2151,7 @@ html.menu-opened body {
     color: #333;
 }
 .user-menu.nav > li > a .badge {
-    background-color: #148BE3;
+    background-color: #68f3f8;
     display: block;
     font-size: 10px;
     font-weight: 700;
@@ -2402,7 +2404,7 @@ html.menu-opened body {
     min-width: 70px;
     min-height: 28px;
     line-height: 2;
-    /* background-color: #148BE3 !important; */
+    /* background-color: #68f3f8 !important; */
 }
 .inv-logo {
     max-height: 80px;
@@ -2778,7 +2780,7 @@ table.table-inbox tbody tr.checked {
     width: 100%;
 }
 .error-box h1 {
-    color: #148BE3;
+    color: #68f3f8;
     font-size: 10em;
 }
 .error-box p {
@@ -2790,7 +2792,7 @@ table.table-inbox tbody tr.checked {
     font-weight: 600;
     min-width: 200px;
     padding: 10px 20px;
-    background-color: #148BE3;
+    background-color: #68f3f8;
 }
 .chat-window {
     border: 1px solid #e0e3e4;
@@ -3738,28 +3740,28 @@ card-title {
 }
 .buttonedit {
     float: right;
-    border-color: #148BE3;
+    border-color: #68f3f8;
     height: 45px;
-    background: #148BE3;
+    background: #68f3f8;
 }
 .buttonedit1 {
     float: right;
     border-color: transparent;
     height: 45px;
-    background: #148BE3;
-    border-color: #148BE3;
+    background: #68f3f8;
+    border-color: #68f3f8;
 }
 .veiwbutton {
     font-size: 0.9rem;
-    background: #148BE3;
-    border-color: #148BE3;
+    background: #68f3f8;
+    border-color: #68f3f8;
 }
 .search_button {
-    background: #148BE3;
-    border-color: #148BE3;
+    background: #68f3f8;
+    border-color: #68f3f8;
 }
 section.pricing {
-    background: #148BE3;
+    background: #68f3f8;
     height: 150px;
     border-radius: 15px;
 }
@@ -3800,8 +3802,8 @@ section.pricing {
     font-weight: 700;
     padding: 1rem;
     transition: all 0.2s;
-    background: #148BE3;
-    border-color: #148BE3;
+    background: #68f3f8;
+    border-color: #68f3f8;
 }
 @media (min-width: 992px) {
     .pricing .card:hover {
@@ -3950,7 +3952,7 @@ h3.page-sub-title {
 }
 .blog-view .blog-title {
     font-size: 28px;
-    color: #148BE3;
+    color: #68f3f8;
 }
 .blog-view .blog-info {
     border: 0;
@@ -5400,7 +5402,7 @@ h3.page-sub-title {
 @media only screen and (min-width: 992px) {
     #toggle_btn {
         align-items: center;
-        color: #148BE3;
+        color: #68f3f8;
         display: inline-flex;
         float: left;
         font-size: 30px;

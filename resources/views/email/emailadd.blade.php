@@ -5,6 +5,7 @@
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta name="description" content="Reset Password Email Template.">
+
     <style type="text/css">
         a:hover {text-decoration: underline !important;}
     </style>
@@ -23,7 +24,7 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                            <img width="130" height="60" src="{{ $message->embed(public_path().'/images/logoemail.png') }}" alt="logo">
+                            <img width="130" height="60" src="{{ $message->embed(public_path().'/images/logoemailnew.png') }}" alt="logo">
                         </td>
                     </tr>
                     <tr>

@@ -106,11 +106,11 @@
                                                 <td class="text-left">{{ substr($tiket->request_detail, 0 , 15) }}</td>
                                                 <td class="text-center">
                                                     @if ($tiket->status == 'closed')
-                                                    <span class="badge badge-pill bg-warning inv-badge">{{ $tiket->status }}</span>
+                                                    <span class="badge badge-pill bg-primary inv-badge">{{ $tiket->status }}</span>
                                                     @elseif ($tiket->status == 'cancelled')
                                                     <span class="badge badge-pill bg-danger inv-badge">{{ $tiket->status }}</span>
                                                     @else
-                                                    <span class="badge badge-pill bg-primary inv-badge">{{ $tiket->status }}</span>
+                                                    <span class="badge badge-pill bg-warning inv-badge">{{ $tiket->status }}</span>
                                                     @endif
                                                     {{-- <span class="badge badge-pill bg-success inv-badge">{{ $tiket->status }}</span> --}}
                                                 </td>

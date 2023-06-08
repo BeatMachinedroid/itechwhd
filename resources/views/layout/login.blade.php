@@ -5,7 +5,7 @@
     <title>ITECH Help Desk | login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logoitech.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/logo1.png') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <!--===============================================================================================-->
     <!--===============================================================================================-->
@@ -36,7 +36,7 @@
     <div class="limiter">
         <div class="container-login100" style="background-image: url('{{ asset('images/1234.jpeg') }}')">
             <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url({{ asset('images/logo1.png') }});">
+                <div class="login100-form-title" style="background-image: url({{ asset('assets/img/ITECH_NEW-removebg-preview.png') }});">
                     <span class="login100-form-title-1">
 
                     </span>
